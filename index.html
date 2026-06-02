@@ -514,6 +514,11 @@
     padding: 6rem 8%;
     text-align: center;
   }
+  .testimonial-carousel { position: relative; }
+  .testimonial-slide {
+    display: none;
+  }
+  .testimonial-slide.active { display: block; }
   .testimonial blockquote {
     font-family: var(--font-display);
     font-size: clamp(1.5rem, 3vw, 2.2rem);
@@ -532,6 +537,39 @@
     text-transform: uppercase;
     color: rgba(255,255,255,0.7);
     font-style: normal;
+  }
+  .testimonial-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  .testimonial-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: transparent;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .testimonial-btn:hover { background: rgba(255,255,255,0.15); }
+  .testimonial-dots { display: flex; gap: 0.5rem; align-items: center; }
+  .testimonial-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    padding: 0;
+  }
+  .testimonial-dot.active {
+    background: #fff;
+    transform: scale(1.4);
   }
 
   /* ── CONTATO ── */
@@ -984,8 +1022,25 @@
 
 <!-- TESTIMONIAL -->
 <section class="testimonial">
-  <blockquote>"A Eternitá faz parte da história do nosso escritório. Conheci a marca quando ainda era apenas eu trabalhando sozinha. O primeiro kit que encomendei foi em 2021 e, desde então, ele se tornou uma tradição por aqui. Os clientes sempre adoram receber — e fica ainda mais especial porque a Eternitá prepara uma carta personalizada para cada envio, tornando a experiência única. Fazemos o pedido e eles enviam diretamente para cada cliente. Simplesmente amamos e indicamos de olhos fechados!"</blockquote>
-  <cite>Natália e Guilherme | E.N Design Arquitetura</cite>
+  <div class="testimonial-carousel" id="testimonialCarousel">
+
+    <div class="testimonial-slide active">
+      <blockquote>"A Eternitá faz parte da história do nosso escritório. Conheci a marca quando ainda era apenas eu trabalhando sozinha. O primeiro kit que encomendei foi em 2021 e, desde então, ele se tornou uma tradição por aqui. Os clientes sempre adoram receber — e fica ainda mais especial porque a Eternitá prepara uma carta personalizada para cada envio, tornando a experiência única. Fazemos o pedido e eles enviam diretamente para cada cliente. Simplesmente amamos e indicamos de olhos fechados!"</blockquote>
+      <cite>Natália e Guilherme | E.N Design Arquitetura</cite>
+    </div>
+
+    <div class="testimonial-slide">
+      <blockquote>"O atendimento foi excelente do início ao fim, com atenção aos processos mais rigorosos de uma compra corporativa e cuidado com cada detalhe, mesmo a distância. Nos enviaram fragrâncias pelo correio para que pudéssemos escolher, e tudo chegou muito bem embalado. Manteremos a Eternitá em nossa lista de fornecedores com certeza!"</blockquote>
+      <cite>Clarice dos Anjos | Equipe de Marketing — Dufry</cite>
+    </div>
+
+  </div>
+
+  <div class="testimonial-controls">
+    <button class="testimonial-btn" id="tPrev" aria-label="Anterior">&#8592;</button>
+    <div class="testimonial-dots" id="testimonialDots"></div>
+    <button class="testimonial-btn" id="tNext" aria-label="Próximo">&#8594;</button>
+  </div>
 </section>
 
 <!-- CONTATO -->
@@ -1135,6 +1190,30 @@
   }
 
   setInterval(() => goHero(heroIndex + 1), 4000);
+
+  // ── CARROSSEL DE DEPOIMENTOS ──
+  const tSlides = document.querySelectorAll('.testimonial-slide');
+  const tDotsContainer = document.getElementById('testimonialDots');
+  let tIndex = 0;
+
+  tSlides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goT(i));
+    tDotsContainer.appendChild(d);
+  });
+
+  function goT(index) {
+    tSlides[tIndex].classList.remove('active');
+    tDotsContainer.children[tIndex].classList.remove('active');
+    tIndex = (index + tSlides.length) % tSlides.length;
+    tSlides[tIndex].classList.add('active');
+    tDotsContainer.children[tIndex].classList.add('active');
+  }
+
+  document.getElementById('tPrev').addEventListener('click', () => goT(tIndex - 1));
+  document.getElementById('tNext').addEventListener('click', () => goT(tIndex + 1));
+  setInterval(() => goT(tIndex + 1), 7000);
   const track = document.getElementById('carouselTrack');
   const btnPrev = document.getElementById('btnPrev');
   const btnNext = document.getElementById('btnNext');
