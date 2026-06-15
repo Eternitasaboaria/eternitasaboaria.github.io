@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quem Somos | Eternità Saboaria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F8F3EC;
+    --cream-dark: #EDE5D8;
+    --sand: #D9CBBA;
+    --terracotta: #B8714E;
+    --terracotta-light: #D4896A;
+    --brown: #5C3D2E;
+    --brown-dark: #3B2517;
+    --ink: #2A2118;
+    --muted: #7A6E64;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(248,243,236,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--sand);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 64px;
+  }
+  .nav-logo img { height: 34px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--terracotta); }
+  .nav-cta {
+    background: var(--terracotta);
+    color: #fff !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+  }
+  .nav-cta:hover { background: var(--brown) !important; }
+
+  /* ── BLOCOS ── */
+  .qs-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 540px;
+    margin-top: 64px;
+  }
+  .qs-block + .qs-block { margin-top: 0; }
+  .qs-block-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .qs-block-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 7%;
+  }
+
+  /* ── ELEMENTOS ── */
+  .qs-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    border: 1px solid var(--terracotta);
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 2rem;
+    width: fit-content;
+  }
+  .qs-tag-light {
+    color: var(--terracotta-light);
+    border-color: var(--terracotta-light);
+  }
+  .qs-divider {
+    width: 36px; height: 1px;
+    background: var(--terracotta);
+    margin: 1.5rem 0;
+  }
+  .qs-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    color: var(--brown-dark);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+  .qs-quote-author {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--terracotta);
+    display: block;
+  }
+  .qs-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 300;
+    color: var(--brown-dark);
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+  }
+  .qs-title em { font-style: italic; color: var(--terracotta); }
+  .qs-title-light { color: var(--cream); }
+  .qs-title-light em { color: var(--terracotta-light); }
+  .qs-body {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+  .qs-body-light { color: rgba(248,243,236,0.75); }
+
+  /* ── CORES DE FUNDO ── */
+  .bg-cream { background: var(--cream); }
+  .bg-cream-dark { background: var(--cream-dark); }
+  .bg-dark { background: var(--brown-dark); }
+
+  /* ── BLOCO HISTÓRIA (centralizado) ── */
+  .qs-historia {
+    background: var(--cream-dark);
+    padding: 7rem 8%;
+    text-align: center;
+  }
+  .qs-historia-inner { max-width: 700px; margin: 0 auto; }
+  .qs-historia .qs-tag {
+    margin: 0 auto 2rem;
+    display: block;
+    text-align: center;
+    border: none;
+  }
+  .qs-historia .qs-divider { margin: 1.5rem auto; }
+  .qs-historia .qs-body { color: var(--brown); }
+  .qs-assinatura {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.8rem;
+    color: var(--terracotta);
+    display: block;
+    margin-top: 2rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 4%; }
+    .nav-links { display: none; }
+    .qs-block {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    .qs-block-img { min-height: 300px; }
+    .qs-block-text { padding: 3rem 6%; }
+    .qs-historia { padding: 4rem 6%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://www.eternitasaboaria.com.br" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria/main/logo-rodape.png" alt="Eternità Saboaria">
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://www.eternitasaboaria.com.br">Home</a></li>
+    <li><a href="https://www.eternitasaboaria.com.br/quemsomos" class="active">Quem Somos</a></li>
+    <li><a href="https://www.eternitasaboaria.com.br/personalizacao">Personalização</a></li>
+    <li><a href="https://eternitasaboaria.github.io/eternitasaboaria/brindes-corporativos.html" class="nav-cta">Brindes Corp.</a></li>
+  </ul>
+</nav>
+
+<!-- BLOCO 1 — Citação -->
+<div class="qs-block bg-cream">
+  <div class="qs-block-img">
+    <img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria/main/quemsomos-vela.jpg" alt="Vela personalizada Eternità">
+  </div>
+  <div class="qs-block-text bg-cream">
+    <span class="qs-tag">Sobre a Eternità</span>
+    <p class="qs-quote">"A memória é o perfume da alma."</p>
+    <div class="qs-divider"></div>
+    <span class="qs-quote-author">George Sand</span>
+  </div>
+</div>
+
+<!-- BLOCO 2 — Missão -->
+<div class="qs-block bg-dark">
+  <div class="qs-block-text bg-dark">
+    <span class="qs-tag qs-tag-light">Nossa missão</span>
+    <p class="qs-title qs-title-light">Presentear é um gesto de <em>generosidade</em></p>
+    <div class="qs-divider" style="background:var(--terracotta-light);"></div>
+    <p class="qs-body qs-body-light">Presentear é um gesto de generosidade: a partilha de um instante de felicidade. Acreditamos que presentes significativos eternizam momentos, fortalecem relações e constroem histórias.</p>
+  </div>
+  <div class="qs-block-img">
+    <img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria/main/quemsomos-presente.jpg" alt="Presente personalizado">
+  </div>
+</div>
+
+<!-- BLOCO 3 — Propósito -->
+<div class="qs-block bg-cream">
+  <div class="qs-block-img">
+    <img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria/main/quemsomos-potinhos.jpg" alt="Potinhos personalizados">
+  </div>
+  <div class="qs-block-text bg-cream">
+    <span class="qs-tag">Propósito</span>
+    <p class="qs-title">Cada lembrança nasce com um <em>propósito</em></p>
+    <div class="qs-divider"></div>
+    <p class="qs-body">Cada lembrança que criamos nasce com um propósito: preservar momentos.</p>
+    <p class="qs-body">Afinal, as pequenas maravilhas da vida merecem ser recordadas.</p>
+  </div>
+</div>
+
+<!-- BLOCO 4 — Simplicidade -->
+<div class="qs-block bg-cream-dark">
+  <div class="qs-block-text bg-cream-dark">
+    <span class="qs-tag">Nossa filosofia</span>
+    <p class="qs-quote" style="font-size:clamp(1.5rem,2.5vw,2rem); margin-bottom:0.5rem;">"A simplicidade é o último grau da sofisticação."</p>
+    <span class="qs-quote-author" style="margin-bottom:1.5rem;">Leonardo da Vinci</span>
+    <div class="qs-divider"></div>
+    <p class="qs-body">Na nossa produção, a simplicidade revela o que é significativo. Cada detalhe carrega sentido e conta histórias que merecem ser preservadas e revividas.</p>
+  </div>
+  <div class="qs-block-img">
+    <img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria/main/quemsomos-personalizado.jpg" alt="Produto feito à mão">
+  </div>
+</div>
+
+<!-- BLOCO 5 — História -->
+<div class="qs-historia">
+  <div class="qs-historia-inner">
+    <span class="qs-tag">Nossa história</span>
+    <p class="qs-quote" style="text-align:center; margin-bottom:2rem;">A Eternità Saboaria surgiu da vontade de criar, ver e fazer o novo.</p>
+    <div class="qs-divider"></div>
+    <p class="qs-body" style="color:var(--brown);">De uma ideia simples e muito apoio, nasceu uma empresa familiar que valoriza parceiros e artesãos locais. Nossos processos seguem um caminho sustentável, com matérias-primas ecológicas e produção feita à mão.</p>
+    <p class="qs-body" style="color:var(--brown);">Seja bem-vindo ao nosso mundo, vamos adorar fazer parte da sua história.</p>
+    <span class="qs-assinatura">Ruane e Mateus</span>
+  </div>
+</div>
+
+<!-- BLOCO 6 — Apresentação -->
+<div class="qs-block bg-cream">
+  <div class="qs-block-img">
+    <img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria/main/quemsomos-atelie.jpg" alt="Ruane e Mateus no ateliê">
+  </div>
+  <div class="qs-block-text bg-cream">
+    <span class="qs-tag">Quem somos</span>
+    <p class="qs-quote">Olá, prazer!</p>
+    <div class="qs-divider"></div>
+    <p class="qs-body">Somos Ruane e Mateus, criadores e artesãos da Eternità Saboaria.</p>
+  </div>
+</div>
+
+</body>
+</html>
