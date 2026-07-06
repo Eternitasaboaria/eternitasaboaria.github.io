@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio Personalização — Eternità Saboaria</title>
+  <meta name="description" content="Portfólio de personalização Maternidade & Batizado — Eternità Saboaria e Velas Personalizadas">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:       #F8F3EC;
+      --cream-mid:   #EDE5D8;
+      --cream-dark:  #E2D8CB;
+      --terracotta:  #C4836A;
+      --sage:        #8A9E8C;
+      --brown:       #3B2517;
+      --brown-light: #7A6558;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--brown);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    hr.thin {
+      border: none;
+      border-top: 1px solid var(--cream-dark);
+      margin: 0;
+    }
+
+    /* ══════════════════════════════════════
+       1. HERO
+    ══════════════════════════════════════ */
+    .hero {
+      background: var(--cream);
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 28px 80px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/BEL_1549.jpg") center center / cover no-repeat;
+      opacity: .12;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-logo {
+      width: 180px;
+      margin-bottom: 52px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.4rem, 9vw, 3.2rem);
+      line-height: 1.15;
+      color: var(--brown);
+      margin-bottom: 20px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      color: var(--brown-light);
+      letter-spacing: .06em;
+      max-width: 260px;
+    }
+
+    .hero-photo {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 4/3;
+      background: var(--cream-mid);
+      border-radius: 2px;
+      margin: 44px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .photo-hint {
+      font-size: 10px;
+      letter-spacing: .15em;
+      color: var(--brown-light);
+      opacity: .4;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-scroll span {
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--brown-light);
+      opacity: .5;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, var(--terracotta), transparent);
+      animation: scrollpulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollpulse {
+      0%, 100% { opacity: .4; }
+      50%       { opacity: 1; }
+    }
+
+    /* ══════════════════════════════════════
+       SEÇÕES GENÉRICAS
+    ══════════════════════════════════════ */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section--alt {
+      background: var(--cream-mid);
+      position: relative;
+    }
+
+    .section--alt.bg-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: .1;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .section--alt.bg-photo > .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .bg-funciona::before {
+      background-image: url("https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/BEL_1487.jpg");
+    }
+
+    .bg-info::before {
+      background-image: url("https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/DSC_3378.jpg");
+      background-position: top center;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 7vw, 2.4rem);
+      line-height: 1.2;
+      color: var(--brown);
+      margin-bottom: 36px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--brown-light);
+      margin-top: -24px;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════
+       2. SOBRE
+    ══════════════════════════════════════ */
+    .sobre-body {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .sobre-body p {
+      font-size: 15px;
+      color: var(--brown);
+      line-height: 1.85;
+    }
+
+    .sobre-body p + p {
+      color: var(--brown-light);
+      font-size: 14px;
+    }
+
+    .sobre-acento {
+      width: 32px;
+      height: 1px;
+      background: var(--terracotta);
+      margin-top: 12px;
+    }
+
+    /* ══════════════════════════════════════
+       3. COMO FUNCIONA
+    ══════════════════════════════════════ */
+    .etapas {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .etapa {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 16px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--cream-dark);
+      align-items: start;
+    }
+
+    .etapa:first-child { border-top: 1px solid var(--cream-dark); }
+
+    .etapa-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--terracotta);
+      line-height: 1;
+      padding-top: 2px;
+    }
+
+    .etapa-text strong {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: .04em;
+      color: var(--brown);
+      margin-bottom: 4px;
+    }
+
+    .etapa-text p {
+      font-size: 13px;
+      color: var(--brown-light);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════
+       4. COMO O LAYOUT É APLICADO
+    ══════════════════════════════════════ */
+    .mockups-duplo {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mockup-item {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .mockup-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+    }
+
+    /* ══════════════════════════════════════
+       5. INFORMAÇÕES IMPORTANTES
+    ══════════════════════════════════════ */
+    .info-lista {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .info-item:first-child {
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .info-titulo {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    .info-texto {
+      font-size: 13.5px;
+      color: var(--brown-light);
+      line-height: 1.8;
+    }
+
+    /* ══════════════════════════════════════
+       INTRO COLEÇÕES
+    ══════════════════════════════════════ */
+    .intro-colecoes {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    .intro-colecoes p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.15rem, 5vw, 1.45rem);
+      color: var(--brown-light);
+      line-height: 1.7;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* ══════════════════════════════════════
+       7. COLEÇÕES
+    ══════════════════════════════════════ */
+    .colecoes-wrap {
+      padding: 0 0 80px;
+    }
+
+    .colecao {
+      padding: 64px 0;
+      border-top: 1px solid var(--cream-dark);
+    }
+
+    .colecao-header {
+      margin-bottom: 28px;
+    }
+
+    .colecao-nome {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 7vw, 2.2rem);
+      color: var(--brown);
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+
+    .colecao-desc {
+      font-size: 13px;
+      color: var(--brown-light);
+      line-height: 1.75;
+    }
+
+    .colecao-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .colecao-grid--3 {
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .arte-placeholder {
+      aspect-ratio: 1;
+      background: var(--cream-mid);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .arte-placeholder img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .arte-num {
+      position: absolute;
+      bottom: 7px;
+      right: 9px;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 9px;
+      letter-spacing: .16em;
+      color: var(--brown-light);
+      opacity: .6;
+    }
+
+    .arte-hint {
+      font-size: 9px;
+      letter-spacing: .12em;
+      color: var(--brown-light);
+      opacity: .3;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════════
+       8. RESPIRO
+    ══════════════════════════════════════ */
+    .respiro {
+      background: var(--brown);
+      padding: 100px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .respiro::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/BEL_1450.jpg") center 70% / cover no-repeat;
+      opacity: .18;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .respiro > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .respiro p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.4rem, 6vw, 1.9rem);
+      color: var(--cream);
+      line-height: 1.65;
+      max-width: 300px;
+      margin: 0 auto;
+      opacity: .9;
+    }
+
+    /* ══════════════════════════════════════
+       9. FRASES
+    ══════════════════════════════════════ */
+    .frases-intro {
+      font-size: 13px;
+      color: var(--brown-light);
+      margin-bottom: 44px;
+      line-height: 1.7;
+    }
+
+    .frases-lista {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .frase-item {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .frase-item:first-child { border-top: 1px solid var(--cream-dark); }
+
+    .frase-texto {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--brown);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .frase-autor {
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+    }
+
+    /* ══════════════════════════════════════
+       10. FECHAMENTO
+    ══════════════════════════════════════ */
+    .fechamento {
+      padding: 80px 0 100px;
+      text-align: center;
+      position: relative;
+    }
+
+    .fechamento::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/BEL_1615.jpg") center center / cover no-repeat;
+      opacity: .1;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .fechamento > .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .fechamento-logo {
+      width: 120px;
+      margin: 0 auto 44px;
+      display: block;
+      opacity: .75;
+    }
+
+    .fechamento-texto {
+      font-size: 13.5px;
+      color: var(--brown-light);
+      line-height: 1.9;
+      margin-bottom: 48px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contatos {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 52px;
+    }
+
+    .contato-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--brown);
+      font-size: 13.5px;
+      transition: color .2s;
+    }
+
+    .contato-link:hover { color: var(--terracotta); }
+
+    .contato-icon {
+      width: 18px; height: 18px;
+      opacity: .55;
+      flex-shrink: 0;
+    }
+
+    .fechamento-rodape {
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--brown-light);
+      opacity: .45;
+      line-height: 2;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-scroll-line { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ 1. HERO ══ -->
+<section class="hero">
+  <img
+    class="hero-logo"
+    src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/oficial%2001.png"
+    alt="Eternità Saboaria e Velas Personalizadas"
+  >
+
+  <p class="hero-eyebrow">Portfólio de Personalização</p>
+
+  <h1 class="hero-title">
+    Maternidade<br>
+    <em>&amp; Batizado</em>
+  </h1>
+
+  <p class="hero-sub">Lembranças que carregam delicadeza e presença.</p>
+
+  <div class="hero-photo">
+    <img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/0-196.jpg" alt="Eternità — lembranças artesanais">
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="hero-scroll-line"></div>
+    <span>rolar</span>
+  </div>
+</section>
+
+<!-- ══ 2. SOBRE ══ -->
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title">Design próprio<br><em>e criativo</em></h2>
+    <div class="sobre-body">
+      <p>A Eternità cria lembranças que carregam significado, delicadeza e presença.</p>
+      <p>Mais do que personalizar, traduzimos sentimentos em detalhes que acompanham momentos únicos com leveza e propósito.</p>
+      <p>Cada coleção é pensada para transformar pequenos gestos em memórias afetivas e atemporais.</p>
+    </div>
+    <div class="sobre-acento"></div>
+  </div>
+</section>
+
+<hr class="thin">
+
+<!-- ══ 3. COMO FUNCIONA ══ -->
+<section class="section section--alt bg-photo bg-funciona">
+  <div class="wrap">
+    <h2 class="section-title">Como<br><em>funciona</em></h2>
+    <div class="etapas">
+      <div class="etapa">
+        <span class="etapa-num">1</span>
+        <div class="etapa-text">
+          <strong>Escolha dos itens</strong>
+          <p>Selecione os produtos que farão parte da sua lembrança — sachê, vela, escalda-pés, home spray e mais.</p>
+        </div>
+      </div>
+      <div class="etapa">
+        <span class="etapa-num">2</span>
+        <div class="etapa-text">
+          <strong>Escolha da coleção</strong>
+          <p>Navegue pelas coleções e escolha a arte que melhor representa o momento.</p>
+        </div>
+      </div>
+      <div class="etapa">
+        <span class="etapa-num">3</span>
+        <div class="etapa-text">
+          <strong>Envio das informações</strong>
+          <p>Compartilhe o nome, data e detalhes que tornarão sua lembrança única.</p>
+        </div>
+      </div>
+      <div class="etapa">
+        <span class="etapa-num">4</span>
+        <div class="etapa-text">
+          <strong>Amostra digital e aprovação</strong>
+          <p>Enviamos uma prévia da arte para sua aprovação antes da produção.</p>
+        </div>
+      </div>
+      <div class="etapa">
+        <span class="etapa-num">5</span>
+        <div class="etapa-text">
+          <strong>Finalização e envio</strong>
+          <p>Cada peça é produzida artesanalmente com atenção a cada detalhe.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. COMO O LAYOUT É APLICADO ══ -->
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title">Como o layout<br><em>é aplicado</em></h2>
+    <p class="section-subtitle">A mesma arte, em diferentes aplicações.</p>
+
+    <div class="mockups-duplo">
+      <div class="mockup-item">
+        <img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/0-202.jpg" alt="Arte aplicada em diferentes produtos — coleção 1" style="transform: scale(1.08); transform-origin: center center;">
+      </div>
+      <div class="mockup-item">
+        <img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/BEL_7957.jpg" alt="Arte aplicada em diferentes produtos — coleção 2">
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="thin">
+
+<!-- ══ 5. INFORMAÇÕES IMPORTANTES ══ -->
+<section class="section section--alt bg-photo bg-info">
+  <div class="wrap">
+    <h2 class="section-title">Informações<br><em>importantes</em></h2>
+
+    <div class="info-lista">
+
+      <div class="info-item">
+        <p class="info-titulo">Cores</p>
+        <p class="info-texto">As cores podem apresentar pequenas variações conforme o material e o processo de impressão.</p>
+      </div>
+
+      <div class="info-item">
+        <p class="info-titulo">Personalização</p>
+        <p class="info-texto">É possível adaptar nomes, frases, cores e pequenos elementos dentro da coleção escolhida.</p>
+      </div>
+
+      <div class="info-item">
+        <p class="info-titulo">Transparência</p>
+        <p class="info-texto">A impressão transparente está disponível apenas para layouts com boa leitura em superfícies translúcidas. Consulte disponibilidade.</p>
+      </div>
+
+      <div class="info-item">
+        <p class="info-titulo">Tags frente e verso</p>
+        <p class="info-texto">Tags com impressão frente e verso possuem acréscimo de R$&nbsp;0,50 por unidade.</p>
+      </div>
+
+      <div class="info-item">
+        <p class="info-titulo">Pedido mínimo</p>
+        <p class="info-texto">A mesma arte será aplicada em todas as unidades do pedido.</p>
+      </div>
+
+      <div class="info-item">
+        <p class="info-titulo">Amostra digital</p>
+        <p class="info-texto">Realizamos uma amostra digital única, com possibilidade de pequenos ajustes antes da produção.</p>
+      </div>
+
+      <div class="info-item">
+        <p class="info-titulo">Arte pronta</p>
+        <p class="info-texto">Caso envie sua própria arte finalizada, não realizamos teste de impressão nem nos responsabilizamos pela qualidade do arquivo.</p>
+      </div>
+
+      <div class="info-item">
+        <p class="info-titulo">Autoralidade</p>
+        <p class="info-texto">Não reproduzimos artes de outros artistas e não utilizamos imagens geradas por inteligência artificial.</p>
+      </div>
+
+      <div class="info-item">
+        <p class="info-titulo">Prazos</p>
+        <p class="info-texto">Para mantermos o cronograma de produção e envio, pedimos que as aprovações sejam realizadas dentro do prazo informado no atendimento.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ INTRO COLEÇÕES ══ -->
+<div class="intro-colecoes">
+  <div class="wrap">
+    <p>Cada coleção foi pensada para transmitir uma atmosfera delicada e atemporal, adaptando-se aos diferentes formatos e produtos da Eternità.</p>
+  </div>
+</div>
+
+<!-- ══ COLEÇÕES ══ -->
+<div class="colecoes-wrap">
+  <div class="wrap">
+
+    <!-- 1. MINIMALISTAS -->
+    <div class="colecao">
+      <div class="colecao-header">
+        <h3 class="colecao-nome">Minimalistas</h3>
+        <p class="colecao-desc">Linhas limpas, tipografia discreta. Para quem valoriza o silêncio visual e a elegância sem adornos.</p>
+      </div>
+      <div class="colecao-grid">
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 01</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 02</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 03</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 04</span></div>
+      </div>
+    </div>
+
+    <!-- 2. BOTÂNICOS LEVES — 6 artes, grid de 3 -->
+    <div class="colecao">
+      <div class="colecao-header">
+        <h3 class="colecao-nome">Botânicos leves</h3>
+        <p class="colecao-desc">Elementos naturais delicados — flores, folhas e ramos — tratados com leveza e paleta dessaturada.</p>
+      </div>
+      <div class="colecao-grid colecao-grid--3">
+        <div class="arte-placeholder"><img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/artes-portfolio/BOT%20(4).png" alt="Botânicos leves nº 05"><span class="arte-num">nº 05</span></div>
+        <div class="arte-placeholder"><img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/artes-portfolio/BOT%20(2).png" alt="Botânicos leves nº 06"><span class="arte-num">nº 06</span></div>
+        <div class="arte-placeholder"><img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/artes-portfolio/BOT%20(1).png" alt="Botânicos leves nº 07"><span class="arte-num">nº 07</span></div>
+        <div class="arte-placeholder"><img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/artes-portfolio/BOT%20(5).png" alt="Botânicos leves nº 08"><span class="arte-num">nº 08</span></div>
+        <div class="arte-placeholder"><img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/artes-portfolio/BOT%20(3).png" alt="Botânicos leves nº 09"><span class="arte-num">nº 09</span></div>
+        <div class="arte-placeholder"><img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/artes-portfolio/BOT%20(6).png" alt="Botânicos leves nº 10"><span class="arte-num">nº 10</span></div>
+        <div class="arte-placeholder"><img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/artes-portfolio/BOT%20(7).png" alt="Botânicos leves nº 11"><span class="arte-num">nº 11</span></div>
+        <div class="arte-placeholder"><img src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/artes-portfolio/BOT%20(8).png" alt="Botânicos leves nº 12"><span class="arte-num">nº 12</span></div>
+      </div>
+    </div>
+
+    <!-- 3. CÉU POÉTICO -->
+    <div class="colecao">
+      <div class="colecao-header">
+        <h3 class="colecao-nome">Céu Poético</h3>
+        <p class="colecao-desc">Nuvens, estrelas e elementos celestes com tratamento suave — para os momentos que parecem vir do alto.</p>
+      </div>
+      <div class="colecao-grid">
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 11</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 12</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 13</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 14</span></div>
+      </div>
+    </div>
+
+    <!-- 4. MARINHO -->
+    <div class="colecao">
+      <div class="colecao-header">
+        <h3 class="colecao-nome">Marinho</h3>
+        <p class="colecao-desc">Conchas, ondas e a calma do mar — tons azulados dessaturados e texturas suaves de água.</p>
+      </div>
+      <div class="colecao-grid">
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 15</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 16</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 17</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 18</span></div>
+      </div>
+    </div>
+
+    <!-- 5. RELIGIOSO DELICADO -->
+    <div class="colecao">
+      <div class="colecao-header">
+        <h3 class="colecao-nome">Religioso delicado</h3>
+        <p class="colecao-desc">Fé expressa com refinamento — símbolos sagrados, pombas e detalhes dourados com presença suave.</p>
+      </div>
+      <div class="colecao-grid">
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 19</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 20</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 21</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 22</span></div>
+      </div>
+    </div>
+
+    <!-- 6. MONOGRAMAS -->
+    <div class="colecao">
+      <div class="colecao-header">
+        <h3 class="colecao-nome">Monogramas</h3>
+        <p class="colecao-desc">A inicial como protagonista. Composições tipográficas exclusivas que personalizam com discrição e identidade.</p>
+      </div>
+      <div class="colecao-grid">
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 23</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 24</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 25</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 26</span></div>
+      </div>
+    </div>
+
+    <!-- 7. TIPOGRÁFICOS -->
+    <div class="colecao">
+      <div class="colecao-header">
+        <h3 class="colecao-nome">Tipográficos</h3>
+        <p class="colecao-desc">O nome, a data, a frase — como elemento visual central. Design que faz da palavra a própria arte.</p>
+      </div>
+      <div class="colecao-grid">
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 27</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 28</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 29</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 30</span></div>
+      </div>
+    </div>
+
+    <!-- 8. ENCANTADO -->
+    <div class="colecao">
+      <div class="colecao-header">
+        <h3 class="colecao-nome">Encantado</h3>
+        <p class="colecao-desc">Um universo lúdico e colorido — animais, brinquedos e elementos ilustrados que celebram a infância com alegria e afeto.</p>
+      </div>
+      <div class="colecao-grid colecao-grid--3">
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 31</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 32</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 33</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 34</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 35</span></div>
+        <div class="arte-placeholder"><span class="arte-hint">arte</span><span class="arte-num">nº 36</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ RESPIRO ══ -->
+<div class="respiro">
+  <p>Cada detalhe conta uma história.<br>Cada lembrança compartilha<br>um momento de amor.</p>
+</div>
+
+<!-- ══ FRASES ══ -->
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title">Frases para<br><em>sua lembrança</em></h2>
+    <p class="frases-intro">Escolha uma frase para compor sua arte, ou compartilhe a sua própria.</p>
+
+    <div class="frases-lista">
+      <div class="frase-item">
+        <p class="frase-texto">O amor é a única coisa que cresce à medida que se reparte.</p>
+        <p class="frase-autor">O Pequeno Príncipe</p>
+      </div>
+      <div class="frase-item">
+        <p class="frase-texto">É só com o coração que conseguimos ver de verdade. O essencial é invisível aos olhos.</p>
+        <p class="frase-autor">O Pequeno Príncipe</p>
+      </div>
+      <div class="frase-item">
+        <p class="frase-texto">Toda vida existe pra iluminar o caminho de outras vidas que a gente vai encontrar.</p>
+        <p class="frase-autor">Milton Nascimento</p>
+      </div>
+      <div class="frase-item">
+        <p class="frase-texto">Não sei se o mundo é bom. Mas ele está melhor desde que você chegou.</p>
+        <p class="frase-autor">Nando Reis</p>
+      </div>
+      <div class="frase-item">
+        <p class="frase-texto">Na bruma leve das manhãs que vêm de dentro, tu vens chegando pra brincar no meu quintal.</p>
+        <p class="frase-autor">Alceu Valença</p>
+      </div>
+      <div class="frase-item">
+        <p class="frase-texto">Boas-vindas, boas-vindas! Venha conhecer a vida, eu digo que ela é gostosa.</p>
+        <p class="frase-autor">Caetano Veloso</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="thin">
+
+<!-- ══ FECHAMENTO ══ -->
+<section class="section section--alt fechamento">
+  <div class="wrap">
+
+    <img
+      class="fechamento-logo"
+      src="https://raw.githubusercontent.com/eternitasaboaria/eternitasaboaria.github.io/main/oficial%2001.png"
+      alt="Eternità Saboaria"
+    >
+
+    <p class="fechamento-texto">
+      Cada encomenda é produzida artesanalmente em pequenos processos, respeitando o cuidado de cada detalhe.<br><br>
+      Será um prazer acompanhar este momento com você.
+    </p>
+
+    <div class="contatos">
+      <a class="contato-link" href="https://wa.me/5545998006648" target="_blank" rel="noopener">
+        <svg class="contato-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+        </svg>
+        WhatsApp
+      </a>
+      <a class="contato-link" href="https://instagram.com/eternitasaboaria" target="_blank" rel="noopener">
+        <svg class="contato-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+        </svg>
+        @eternitasaboaria
+      </a>
+      <a class="contato-link" href="mailto:contato@eternitasaboaria.com.br">
+        <svg class="contato-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        contato@eternitasaboaria.com.br
+      </a>
+    </div>
+
+    <p class="fechamento-rodape">
+      Cascavel, PR &nbsp;·&nbsp; Produção artesanal &nbsp;·&nbsp; Envio para todo o Brasil
+    </p>
+
+  </div>
+</section>
+
+</body>
+</html>
