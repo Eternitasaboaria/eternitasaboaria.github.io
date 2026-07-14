@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo Maternidade & Batizado | Eternità</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F8F3EC;
+    --cream-soft:#EDE5D8;
+    --brown:#3B2517;
+    --brown-soft:#5C3D2E;
+    --terracotta:#B8714E;
+    --terracotta-light:#D4896A;
+    --line: rgba(59,37,23,0.14);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--brown);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+
+  .site-icon{
+    display:flex;
+    justify-content:center;
+    padding:36px 0 0;
+  }
+  .hero-icon{
+    height:64px;
+    width:auto;
+    margin:0 auto 8px;
+  }
+
+  .eyebrow{
+    font-family:'Jost', sans-serif;
+    font-size:12px;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--terracotta);
+    font-weight:500;
+    margin:0 0 14px;
+  }
+  h1,h2,h3{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    margin:0;
+    color:var(--brown);
+  }
+  .italic{font-style:italic;}
+
+  /* HERO */
+  .hero{
+    padding:64px 0 72px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{
+    font-size:clamp(40px, 8vw, 64px);
+    line-height:1.08;
+    font-style:italic;
+    font-weight:500;
+  }
+  .hero p{
+    max-width:480px;
+    margin:22px auto 0;
+    font-size:16px;
+    line-height:1.7;
+    color:var(--brown-soft);
+  }
+  .hero .tag-row{
+    margin-top:28px;
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .pill{
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    border:1px solid var(--line);
+    padding:7px 14px;
+    border-radius:100px;
+    color:var(--brown-soft);
+  }
+
+  /* SECTION HEADS */
+  .section{padding:80px 0;}
+  .section-head{
+    text-align:center;
+    max-width:560px;
+    margin:0 auto 48px;
+  }
+  .section-head h2{
+    font-size:clamp(30px,5vw,42px);
+    font-style:italic;
+  }
+  .section-head p{
+    margin-top:16px;
+    font-size:15px;
+    line-height:1.7;
+    color:var(--brown-soft);
+  }
+
+  /* KITS ESPECIAIS */
+  .especiais{background:var(--brown); color:var(--cream);}
+  .especiais .eyebrow{color:var(--terracotta-light);}
+  .especiais .section-head h2{color:var(--cream);}
+  .especiais .section-head p{color:var(--cream-soft);}
+  .kit-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  @media(min-width:760px){
+    .kit-grid{grid-template-columns:1fr 1fr;}
+  }
+  .kit-card{
+    background:var(--cream);
+    color:var(--brown);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .kit-card img{width:100%; aspect-ratio:4/3; object-fit:cover;}
+  .kit-body{padding:28px 26px 30px;}
+  .kit-body .kit-tag{
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--terracotta); font-weight:500; margin-bottom:8px;
+  }
+  .kit-body h3{font-size:26px; font-style:italic; margin-bottom:10px;}
+  .kit-body p{font-size:14px; line-height:1.65; color:var(--brown-soft); margin:0 0 18px;}
+  .kit-price{font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:600;}
+  .kit-price small{font-family:'Jost',sans-serif; font-size:13px; font-weight:400; color:var(--brown-soft); display:block; margin-top:4px;}
+  .discount-table{
+    margin-top:18px; border-top:1px solid var(--line); padding-top:16px;
+    font-size:13px; color:var(--brown-soft);
+  }
+  .discount-table div{display:flex; justify-content:space-between; padding:4px 0;}
+  .discount-table span:last-child{color:var(--brown); font-weight:500;}
+  .kit-minimo{
+    margin-top:16px; font-size:12px; color:var(--terracotta-light); letter-spacing:0.03em;
+  }
+
+  /* COMO FUNCIONA */
+  .como-funciona .steps{
+    display:grid; grid-template-columns:1fr; gap:28px;
+  }
+  @media(min-width:760px){ .como-funciona .steps{grid-template-columns:repeat(3,1fr);} }
+  .step{text-align:center; padding:0 12px;}
+  .step .step-mark{
+    width:44px; height:44px; margin:0 auto 18px;
+    border:1px solid var(--terracotta); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:18px; color:var(--terracotta);
+  }
+  .step h3{font-size:19px; font-style:italic; margin-bottom:8px;}
+  .step p{font-size:14px; line-height:1.6; color:var(--brown-soft); margin:0;}
+
+  /* MODELO */
+  .modelo{background:var(--cream-soft);}
+  .modelo-card{
+    background:var(--cream);
+    border-radius:4px;
+    display:grid;
+    grid-template-columns:1fr;
+    overflow:hidden;
+    margin-bottom:28px;
+  }
+  @media(min-width:760px){ .modelo-card{grid-template-columns:0.9fr 1.1fr;} }
+  .modelo-visual{background:var(--cream-soft); padding:24px;}
+  .modelo-visual .foto-principal{border-radius:3px; overflow:hidden; margin-bottom:14px;}
+  .modelo-visual .foto-principal img{aspect-ratio:1/1; object-fit:cover;}
+  .swatches{display:flex; gap:10px; flex-wrap:wrap;}
+  .swatch{
+    width:56px; height:56px; border-radius:3px; overflow:hidden; cursor:pointer;
+    border:2px solid transparent; opacity:0.6; transition:all .2s;
+  }
+  .swatch img{width:100%; height:100%; object-fit:cover;}
+  .swatch.active{border-color:var(--terracotta); opacity:1;}
+  .swatch-label{font-size:11px; text-align:center; margin-top:16px; color:var(--brown-soft); letter-spacing:0.03em;}
+
+  .modelo-info{padding:32px 30px;}
+  .modelo-info .kit-tag{font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--terracotta); font-weight:500;}
+  .modelo-info h3{font-size:28px; font-style:italic; margin:8px 0 6px;}
+  .modelo-info .preco-atual{font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:600; color:var(--brown); margin-bottom:20px;}
+  .modelo-info .preco-atual small{font-family:'Jost',sans-serif; font-size:12px; font-weight:400; color:var(--brown-soft); display:block; margin-top:6px;}
+
+  .addons{border-top:1px solid var(--line); padding-top:18px; margin-bottom:18px;}
+  .addon-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 0; font-size:14px; cursor:pointer;
+  }
+  .addon-row .addon-left{display:flex; align-items:center; gap:12px;}
+  .checkbox{
+    width:18px; height:18px; border:1px solid var(--brown-soft); border-radius:3px;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .checkbox.checked{background:var(--terracotta); border-color:var(--terracotta);}
+  .checkbox.checked::after{content:"✓"; color:var(--cream); font-size:12px;}
+  .addon-name{color:var(--brown);}
+  .addon-desc{display:block; font-size:12px; color:var(--brown-soft);}
+  .addon-price{color:var(--brown-soft); font-size:13px;}
+
+  .acabamentos-pendentes{
+    font-size:12.5px; color:var(--brown-soft); line-height:1.6;
+    border-top:1px solid var(--line); padding-top:16px; margin-top:4px;
+  }
+  .acabamentos-pendentes strong{color:var(--brown);}
+
+  .personalizacao-nota{
+    font-size:13px; color:var(--brown-soft); line-height:1.6;
+    font-style:italic; margin:0 0 22px;
+  }
+
+  .cta-final{
+    text-align:center; padding:80px 24px 96px;
+  }
+
+  .detalhes{background:var(--cream-soft);}
+  .detalhes-grid{
+    display:grid; grid-template-columns:1fr; gap:20px;
+  }
+  @media(min-width:640px){ .detalhes-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(min-width:960px){ .detalhes-grid{grid-template-columns:repeat(4,1fr);} }
+  .detalhe-item img{
+    aspect-ratio:4/5; object-fit:cover; border-radius:3px; margin-bottom:12px;
+  }
+  .detalhe-item p{
+    font-size:13px; color:var(--brown-soft); text-align:center; line-height:1.5; margin:0;
+  }
+  .cta-final h2{font-size:clamp(28px,5vw,38px); font-style:italic; margin-bottom:16px;}
+  .cta-final p{max-width:420px; margin:0 auto 28px; color:var(--brown-soft); font-size:14.5px; line-height:1.7;}
+  .pagamento-nota{
+    max-width:380px; margin:24px auto 0; font-size:12px; line-height:1.6;
+    color:var(--brown-soft); opacity:0.85;
+  }
+
+  .minimo-nota{
+    font-size:12px; color:var(--terracotta); letter-spacing:0.04em;
+    text-transform:uppercase; margin-top:12px; font-weight:500;
+  }
+
+  /* MIMOS */
+  .mimos-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:20px;
+  }
+  @media(min-width:640px){ .mimos-grid{grid-template-columns:repeat(3,1fr);} }
+  @media(min-width:960px){ .mimos-grid{grid-template-columns:repeat(4,1fr);} }
+  .mimo-card{background:var(--cream); border-radius:4px; overflow:hidden;}
+  .mimo-card img{aspect-ratio:1/1; object-fit:cover; width:100%;}
+  .mimo-body{padding:14px 16px 18px;}
+  .mimo-body .mimo-tag{font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--terracotta); font-weight:500; margin-bottom:6px;}
+  .mimo-body h4{font-family:'Cormorant Garamond',serif; font-size:18px; font-style:italic; margin:0 0 6px;}
+  .mimo-body .mimo-desc{font-size:12.5px; color:var(--brown-soft); line-height:1.55; margin:0 0 10px;}
+  .mimo-body .mimo-price{font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600;}
+  .mimo-body .mimo-price small{font-family:'Jost',sans-serif; font-size:11px; font-weight:400; color:var(--brown-soft); display:block; margin-top:2px;}
+
+  /* DESTAQUE HOME SPRAY LUXO */
+  .mimo-card.destaque{background:var(--brown); color:var(--cream);}
+  .mimo-card.destaque .mimo-tag{color:var(--terracotta-light);}
+  .mimo-card.destaque h4{color:var(--cream);}
+  .mimo-card.destaque .mimo-desc{color:var(--cream-soft);}
+  .mimo-card.destaque .mimo-price{color:var(--cream);}
+  .mimo-card.destaque .mimo-price small{color:var(--cream-soft);}
+
+  /* BANDEJAS */
+  .bandejas-grid{
+    display:grid; grid-template-columns:1fr; gap:24px;
+  }
+  @media(min-width:760px){ .bandejas-grid{grid-template-columns:repeat(2,1fr);} }
+  .bandeja-card{background:var(--cream); border-radius:4px; overflow:hidden;}
+  .bandeja-card img{aspect-ratio:4/3; object-fit:cover; width:100%;}
+  .bandeja-body{padding:20px 22px 24px;}
+  .bandeja-body h4{font-family:'Cormorant Garamond',serif; font-size:22px; font-style:italic; margin:0 0 6px;}
+  .bandeja-body .mimo-desc{font-size:13px; color:var(--brown-soft); line-height:1.6; margin:0 0 12px;}
+  .bandeja-body .mimo-price{font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600;}
+  .bandeja-body .mimo-price small{font-family:'Jost',sans-serif; font-size:11px; font-weight:400; color:var(--brown-soft); display:block; margin-top:2px;}
+  .btn{
+    display:inline-block; background:var(--terracotta); color:var(--cream);
+    font-family:'Jost',sans-serif; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;
+    padding:15px 34px; border-radius:100px; text-decoration:none; font-weight:500;
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAe8AAAInCAYAAACx2tGJAAA3j0lEQVR4nO3dP3bbyJrG4XfmTD7MGF52wLjRMYNmr6DpFVhege0VyF6B5BWIXoHpFRgOFBuOFRg3VDS4O5gAJZtWyxILqMJXVfg959zTfWcA1nctmS/qLyQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOPZf1gUAwNQ262UlaSFp6/5Pv7v/Lkkr95/HdJKao//+2f2zlqTrm9t6TH3AUwhvIJDNerm993+6/98f0unnEGiub267IAVB0vefy1Z9QK8kVRM13ar/2X5VH+r8bBEM4Q2cyIXAQv2X/7/0o4e2itBcp/6Lv1P/5d9KaunRPW2zXu4k/ak+sCvLWh7QqA/yz5JqwhxDEd7AAwx7a6do3H/uAqC1LMbaZr1cqf9Z/S1pZ1nLALWkj5IOc/85wg/hjdnbrJcL9V/+qfbWntJKOkj6OJeeufuZ7SQ912nTEzloJL0XQY4TEN6YJddb26nvrW0tawno7fXN7RvrImJyIyLPJZ3ZVhLdQf3D2N64DiSK8MZsuBXGz9WH9sqylkh+K7HHdtTLPleZP7fHdJLeSdqX+LPFcIQ3iua++M/Uh3ZlWUtk++ub2xfWRYTkfnavJL3Uj21cc7ZXP7rSGteBBBDeKNKMhlfvFNPrJrSfVKsP8dq4DhgivFGUzXp5pv5Lv7KtZFKX1ze3r62LGCuh0G7UD1c/ZSHb37ODpNelPLTBD+GNIrjQnuOcaC3pWe77hd3P70LThXajfpX+V/fv3Zie7L0T2+7OANgOL8/LXn2IdxO1hwQQ3shapqFdH/17K+nfD1zz59G/V/pnqLWS3l3f3F4Gq8qAm964UPwebKN+P3WtCU86c6G+1Y9tiItITXXqh9IvI30+EkN4I0vuS/9K6YZ2qx9HYzYa2bOTvm9vW6k/aa0d81nW3BD5ufph8hg6/XwAShepHS8uzHfqtyhWEZpo1PfC6wifjYQQ3siKC7Arpbc3u9XPx162lsWkLPKD10GJBfavHJ01EGMnxKX6nngX+HORCMIb2disl2/U99ZS0aoPi/fXN7eNaSUZiNjb7pT5XmjXI3+pPswXgT62Vb8eogn0eUgI4Y3kuS+2K6WxgrxTH9jv+FI8XaSfYau+d7kP+JmmjlbcP1e4kYniT96bI8IbSUuot92qP3f6kqFIPxFWkrcqLLQfEngxZq0CdiXgB8IbSXI9kA+yn9vu1C8A2hvXkaXNenmlcAfltJpBaN/nHmBD7H3vJP3FiFEZCG8kxy1o+iD707Xeip72IO7h65PCDJN36qcp3gT4rCwFXi/wYm4PQCUivJEUN1R4ZVxGrf4LrjWuI0tufvuDwgz3HsQpYt+5P9sLjR+RKuJUvjkjvJGMwEOsQ73moIvhXLh80vhRk1b9z+Iw8nOKtFkvX6nviS9GfExxL7OZE8IbSUgguBv1ve3GsIasBZzuOKj/WXQjP6dogc48aNTPg3fjK8KUCG+YCjw3OtRenA09SqDpjk4sDvQWYEdGIwI8O4Q3zCQS3AyTjxQouBv1W5nasfXMUYBRj0YEeFYIb5hIJLhZdTvSZr3cqQ+NMfZi5GO0AH+nGhHg2SC8YWKzXn6S3R7uTux3HS3Q4jRGPgIbuX6kEQGehf+2LgDz475ctkbNdyK4RwsQ3J36kY/LMBXhjltB/nbg7ZXGj6RgAvS8ManNenmheK+BfEongns0Nzz7TeOCm59DZCPXIrCNLHH0vDEZ92XyyrAEtoKNdDSvuhj4EZ0I7km49RxDA/jMrWJHoghvTOLoZCgrLzjwI4gLDV8Q1YngntTIAD93D9xIEMPmiM711r4o3CsOfXEUZADuVK+hD2CdCG4zI4bQO/FzSxI9b0zhSnbBXRPc440cOelEAJga0QNfSPrgHsCREMIbUbkn/p1R852kZ0ZtF+Po9axDdCK4kzAiwFeyf1kQ7iG8EY07e9lynvsZ+1WDGDNy8prgTocL8P2AW3du2gSJILwR04Xs3sl9eX1zWxu1XQx3gtpu4O2cU54gtwXsMODWczd9ggQQ3ohi5Jf+WK2GH1IBxw2Xj9knfBmuGgT2Qv1paj4WYvg8GYQ3gnNf+tbbwjrD9ktxpWEjJw0HfKTN/f14oX5Ngo+K/d9pILwRwyvZrS4/MFw+nntL1W7ArZ1YJJgFtxZhyEPWuVvPAkOEN4Jyve6XhiWwLSyMocOjL3itZz7cwUWXA25l+NwY4Y3QrBeptUZtF8MNi64G3HrJKXZZeqt+nYiPLaev2eKENQTjhtK+GTXfSfqNue5xRrx0pJX0B3/+eXLTJJ88b2vFz9wMPW+EdG7Y9ju+RIIYOnLCIsGMuXUil563rWT7oqFZI7wRhOuxnRmWsDdsuwhu5ORswK3sqS/DkOHzlyxes0F4I5RXhm3vmesOYsjISSf21BfBjZz4LvhcyHbEbbYIb4RiucL8nWHbRRjR637NcHk53ILD2vO2M3rf0yO8MZpbdbowar7h7OwghvSeao4/LdKgvd/Bq8CjCG+E8Nyw7feGbRdhxHoFhssL5Kag9p630fueGOGNUdxf2K1hCQfDtkvxasA9NYvUijbkwYze94QIb4y1M2y7ZqFaEENGTji7vGADe987N4qDCRDeGMtyyPyjYdtFcOsVVp63sbp/Hnx73wux73syhDcGc0PmlWEJB8O2S/H3gHtYZzADA3vflg/zs0J4Y4ydYdstvb9x3MPXzvM25rrnxfdBbbVZL3cxCsHPCG+MYfmUfTBsuxS7Afewp35G3INa43kbve8JEN4YxC1MqQxL+GrYdil8v2Rb3ho2S74PbDu2jcVHeGOorXH7tXH7WRu4XoG57nk6DLhnF7gG3EN4Y6g/DdvumO8ebTfgnn3gGpABd/zt3vM2hs4jI7wx1Naw7caw7VL4frkeeGCaNd9tmRVD53ER3vCWwHz3Z8O2szfw58ee+hlzax06z9t2wQvBd4Q3hqiM2++M28/ddsA9h8A1ID+15/UMnUdEeGOIrXH7jXH7ufNdr1Dz2k+IofOkEN4Y4nfj9lvj9nO39byeIXNIw3Z4bAPXAIfwxhAry8ZZODXcwPnuOnghyI77e9d63jbk+F2cgPDGEJV1ARis8ry+u765bSLUgTzVntdvI9QAEd7wtFkvK+MSauP2c7f1vL6OUAPy5bvTY5HAd0aRCG/4WlkXgFH+5Xk92/JwrBlwzzZwDRDhDX+VdQEYZeV5fROhBmRq4BSK5WmMxSK84et/rQvAKFufi3n9Jx7QeF5fRahh9ghv+KqsC8AwbqW5jzZCGchf63n9asDvHp5AeAPzUXle30aoAfkb8jreKnQRc0d4w9fKugAMtvC8nsVqeEg34J5t4Bpmj/CGr5V1ARissi4ARWgG3GN9KmNxCG8Av1JbF4BiLKwLKA3hDcwHOwUQQjPgnm3gGmaP8EZuKusCMlZZF4D8DX3DHCvOwyK8kZuFdQEz0lgXgKJU1gWUhPAG8CDe4Q2ki/BGdjbr5da6BgDettYFlITwBgAgM4Q3fNXWBYgneCBH7HYIiPBGjvgSAPJTWRdQEsIbvlrrAsSXAICZI7zh69/WBYhh80ls1svKugakZ7NerqxrAOENf611ARJfIBNZWBeAJK2sCwDhDX+tdQHO1rqADPGWMKAQhDe8XN/c1tY1OLylKL7KugAkqbIuAIQ3hmmsCxA97yksrAtAkhbWBYDwxjC1dQGSKl504K32vP5fMYpA9v60LgCEN4b5al2As7UuoHAr6wKQpIV1ASC8MczBugDnb+sCMtN4Xr+NUAPyV1kXAMIbA7i3TTXGZUiEi5chbwljSx6O8VKgdBDeGOq9dQGSVhwk4q32vH4VoQbka2VdAHqEN4Y6WBfgPLcuIDOt5/XbCDUgX2MWq7WhigDhjYGub25bpTF0vrMuIDO+iw1ZWYxj2xH3pnC0cjEIb4yRytD51rqIjDSe11cRakCG3PqHlXEZcAhvjLG3LsBh6Px0jef1C9YVwNmOvL8JUAMcwhuDudXLe+MyJOmMA1tOM3CnwDZ4IcjR2CmULkQR6BHeGOutdQHOmXUBGWk8r2c/PaTx60vaADXAIbwxilu4VhuXIUkvrQvIiO/bxbaMbMybmzpZjPkM912BQAhvhJBC73u1WS/PrIvIRD3gnm3gGpCXsetKmhBF4AfCG6O514TWxmVILFw7iesBtZ63MXQ+b7uR97cBasARwhuhvLYuQP3w7ta6iEwcPK/fRagBGXB/p1YjPyaVlxkVg/BGENc3t43SWHl+bl1AJnznvReb9XIXoxAkL8SIVh3gM3CE8EZIr2W/HYTe9wmub24P8v9ZMS0xM26h4i7ARzUBPgNHCG8E4/YQp7B47cq6gEzUntfvWHU+OzuNf393O+SNdngc4Y2grm9uL2U/RLbarJevjGvIwccB95yFLgJJCzENVQf4DNxDeCOGF7IfPj+nl/ikg/x/Tuynn4lAC9Uk//UVOAHhjeDcViTr1ecLsXjtUW4o8+B524qFa7MR6u9PHehzcITwRhTXN7d72a8+f8XitScNGTqn910494C2DfBRDSerxUF4I6bXsl9lesXw+a+5Veet521b93pIlOsi0OfUgT4H9xDeiMYNy1rPf6/E8PlThryXnT/TQm3WyzcK997uIb9bOMF/WReA8rmh60/GZfzljnHFPa4X/W3Arb8xJFoW97vwReO3h0n9FrHfAnwOHkDPG9G50HxhXMYHhs8f5gJ4P+BWet/luVKY4Jb8F0PCA+GNSbgFbJeGJSxk3/tP2ZDhzTPmvsvhhsu3AT+SIfOICG9M5vrm9rVsV6BXm/WS09ceMOLNcPS+C+De1x3yZ9m49x0gEsIbk7q+uX0h2wA/473fv0Tve4bcdFLoUal3gT8P9xDemFwCAX7F/u9/clMb7YBbt0ELwdQ+Kdw8t9TvLjkE/Dw8gPCGiQQC/IMbKsTPhrxYZhW6CEzDTSNVgT92z4tI4iO8YcYF+KVR8wtJnwjwn43ofSMzLrjPInw0Q+YTILxhyi1is9pGthAB/pAUXuuKiNxb984ifPSevf/TILxhzvX2rE5iW4gA/4n7eTQet/hcC2NuwWao40/v48FvIoQ3kuAC4y/ZDNkuRIDfd+pb4Vp3Pjoy4PZyx9ouSa97QoQ3kuH2hf4hm5cZLESAf+ex75ueVibcHHesffmd+F2YFOGNpFzf3HbXN7d/yWYh20LSF/aBf/fUWoS9GzFB4iIuTrvzjl73tAhvJMktZHsmm3nwKze8OGvuy/jyF//vt263ABK2WS8Xm/Xyi+IGdyvbo49nibeKIWnu9K4r2RwEUkt6Nuc9q+70rW/6cYhHLek1R1+mz00BfVD8ffgvGIGZHuGNLLitLecKexLUKVr1X071xO0mY7Ne7tSvTn7N4rQ8HK0oX0RuqnbTXJgY4Y1suJ7EhWx64W+vb27fGLQLnMyNlFwo7jD5Md7pboTwRnYMe+GN+l54M3G7wJPcw22M405/hQdaQ4Q3suTmwi8k7Qyafyvpcs5z4UiLwQNtc31z+8dEbeEBhDey5t4OdqXpX47Rqu957CduF/jOcEHnH4xA2SK8UQS3teulph9Kr9WHeD1xu5g5w+kjhssTQHijGAaLdY7VIsQxAeOFm6wuTwThjeK4ocRz2YX4e4bTEZp7OD2X9MqohE796vLOqH0cIbxRLOMeSivpvXhZAwKYcN/2Y/5iZCkdhDeK5xa1vZTNynRJOkj6KOlArwU+3O/uuWweQI+9vr65vTSuAUcIb8yG8XD6nYOkz+qDvDWsAwkz3gp5355z7NNDeGN23BfjS/UhvjAspVU/R/5Z/UKg1rAWJCCRB8xjjfrh8s64DtxDeGO23AKgM/VBvrKsxeEFDzPlfhdfKd77todo1e/n7ozrwAMIb0DfX77xXPbDlJwVPSNHoW1xRsFjOvU97sa4DvwC7/PG7LlV6QtJX9X3NiydGbePCWzWy9VmvbxS/7pVi4NWHtOJ4E7e/1gXAEzJBXUl6U/3z8quGsxNgnPa93UiuLNAeKNoLqx3kn5Xv91mYVcN5iqB7Yqn6ERwZ4PwRlFcz2anvme9VX5h3VoXgHDc4Sovlf4ITyeCOyssWEP2XO/6brHZyrKWkXjNYgGOFqE9Vx6/j50I7uzQ80aW3Orwv9UH9sKylgBq9Xu9L23LwBhuaPy50p3PfkgngjtL9LyRDdfDvps3XFjWMkLj/vNZfU+7sSwG47he9k55DI3f16g/W6AxrgMDEN5ImpvDPlM+Q5D31fpxglptWwpCKeBBshEnp2WN8EaS3EKf57J/IYOvWoR1kY5O5Huu/HrZx/bqXzTSGdeBEQhvJOOol53aaVOPaeVeNnJ9c3swrQRRHK2vOLOtJAjeDlYIwhvmMlzoU+vHKz5b21IQQ0E7GO50kp4xGlQOwhtmMtoDK/FO7uIdnRGQ+7D4fbX64O6M60BAhDcm50L7XOn3aA4isIt2tFr8btthad5e39y+sS4C4RHemEwmod1Iei+GxIvmfhdLDWypX4vxgmHychHeiC6D0O7U97Lfsee1XIUd7POYS/U97s64DkREeCOaDEK7kfRODIsXa0aBLdHbnhXCG8G51eNXSje096KXXayZBfadt5IueQidD8IbwbjVuldK82CVTn0ve89cdnlmGthSv5L8NQ+i80N4YzS3Yvdc/ZuUUtOq75UwNF6Qe6vEt5pXYEv97/VrDgaaL8Ibo7h57Qul9+XZql+0szeuA4HMYFvXKTr1I0gMkc8c4Y1B3AlUF0pviLwVoV2Mgg9OGeJSrCKHQ3jD22a9fKN+mDwlrQjtIrgHw536HnZlWUsi9up/t1vjOpAQwhsnS3QVead+5fgb4zowgvvduhsOX1nWkpC9CG38AuGNk2zWywultyDtUgwjZsnNX281zxXij+n0Yytja1oJkkZ441FuCPNKaQ1f1uoPo2iN64AHN3+91bwXnP1KJxaiwQPhjV/arJev1C9KS0UrtsdkxT38bcWCs19p1Pey98Z1IDOEN/7BDWl+UForyTlBKhMFvgs7hr2k9xxliqEIb/zELRz6oHTmIBv1Q+SNcR14xIxPOPPR6scpf51tKcgd4Y3vEtsC1qlfjHZpXAcewIEpJ+vEG+sQAeGNuy/iK6XzJdxIesaCtLQcHZhydyQpfu2gflj8YFwHCkV4z5ybn/ygdOYm37JnOx0cmOLlIOmjOEcfEyC8Z8zNU14pjTnKVn1vuzGuY/ZYcOblIAIbBgjvmUpsG9hB/aK0zriO2XIPcn+KwH5Kp/739bMIbBgivGdos15eSTqzrsN5zaI0G6wQP1mj/mCgj2ztQioI7xlJbP92K4bJJ0dgn6STC2tJNQsnkSLCeyZccH9SGouOavXB3RnXMQsE9klq9UPhNb1r5IDwngG3xeeD0gju/fXN7QvrIkrnDtu5W3S2sKwlUY1cYLOdCzkivAvnVg5/Uhpf4C84wzkeVok/qlbfs27U9647y2KAsQjvgiUU3J364D4Y11EcN6pypj60V5a1JKRTH9ZfxTA4CkV4Fyqx4P6LhWnhHB1N+lJpTIVYa9x/Pktq+F3DHBDeBUoouBtxzGkwRwvPzmwrMdXpqFetPqw7u3IAG4R3YRIL7r/4Yh3HDYu/1HznsWv93KtuLYsBUkF4F4TgLsdmvTxTP4+9ta1kUrX6352vYvgbeBThXQg3D/pF9r2zRgT3IEe97DPZP4DF1uhHUNcENeDnf6wLwHhHB7CsbCshuIdwc9kvVW4vu9HPPerashigBPS8M5fQyWmNCO6TuZ/bmfrQXlnWElgjghqIjp53/i5EcGfDDY2fq4yTz1odDX2Lld/AZAjvjG3WywvZbxtqRHA/6ei40jPbSgbrdLTqW5xSBphi2DxTbjXylXEZnaTf+BL/NRfa58pvPrsRB58AySK8M+QC4ZNxGZ04Oe2XMgvtTj+CuhbD30DyCO/MuDnTL7KfL/2D4P6nTEK708+vwGwsiwHgjznvjLgVyh9kH9wv+ML/WeKh3YmwBopCeOclhZXlb3mt5w9uJORKaYV2J8J6ttyD5IX7r7xboFAMm2cikQVqh+ub22fGNSTBjYKcS3plW8l3jaSP4hWYs+V+J+/vQOnE63iLRHhnIJEzyxuxJUyStFkvX6kP7oVhGZ2kg/re9YGfy7yd8Dt5eX1z+3qyghAd4Z24RE5Q68TK8ruHqCvZ/Sxa9YH9kd41pO/fD1fqD/15ykF9L7yLVxGmwpx3+s5lP8896wVqxkPkrfov3fdz/hngl04NbrnrVpv1khG0AtDzTlgi+7lnPdzmfgZXmvb88VYENp7ghsovnrruAY1m/kBeAsI7Ua63903G89zXN7d/GLZvxqC33akP7Hd8qeIUm/Xy/zT8+6ETU2FZY9g8XVeyXxD1wrB9MxPPbR/Uz2HvJ2gLhXCvkV2M+IiFpE9uCL0JUBImRngnyP3F3BmX8XaOf6lHDEX6aCW9l7RnDy4G+jPAZyxEgGeLYfPEuOHaL7J9x3N9fXP7l2H7k/NctTtUrX5Y/BCxDczAZr38pHAHAzViG2h2/tu6APzDuWyDu9PMhsuP9tHvIjWxV//2tb8IbiSoUt8DXxjXAQ8MmyfErWx+ZVzG2zkN5bqT6y4Ufn1BJ+md+tX6XeDPBtrAn1epf2/CrEbcckbPOy2x51qfUl/f3F4a1zCZzXp5ofALAztJb9X3tN8Q3Ijka4TP3G7WS+sjmHEi5rwTMdFCqaf8Noded6T57U70tDER90Kcb5E+/gW7H9JHeCcgkT3db69vbt8Ytj+JCMfNdiK0YcD1ks8iffwfrEBPG8PmabB+yUU7k+Cu1D8kVYE+cq/+S47hcVh4G/GzP7CALW2EtzE3/PXKuIzijz8N/Ga2Wv3WmhdzmGZAmtzvXh3p41eyfwUxHkF42zs3br8uffuSW1EeIrg79fOBf/FWLyQiZu9759biIEHMeRtK5MUjRS9Sc8EdogdxEK9TRII26+U3xTsbohNnoCeJnrct61530cdzBgruTtKz65vbZwQ3EhWz970Qw+dJIryNuF731rCETnH/0psKFNwH9SMTh7H1ABEd1P99jqXarJdvIn4+BiC87Vj3ut+V2usOENyd+iFyettInvsd3Udu5qVbXItEEN4GEul1Xxq2H02A4G7Uz/HtQ9QDTORd5M9fiOHzpBDeNlLodXfGNQTnHorGfMHsxeIcZCjytrE7W/e6YiSA8J6YG3raGpbQqcBet9vH/WHER7x1+7a7MBUBk3s/QRsXHN6SBsJ7evS6AwtwAMuLOZwwh+IdFHfhmtRvSXsVuQ2cgPCekOt1nxmXsTduP6ijl4wsBtzeifltFMI9lB8maIrFawkgvKd1Ztx+ifu6h75kpFMf3HXIYpC/zXq5yDicPk7QxkL2I4izR3hP66Vx+0Xt63ZvVaoG3NqJhWl4gFuQ9UX2Jx8O4s4k6CZo6izjB5wiEN4TcVuYFoYl1CX1ut2f59mAWzsR3Lhns16uNuvlJ/WLHleSVu53LEf7idqh922I8J6Oda879j7QybgFakO2hHUiuHGPC+lv+ucukFzDaYpV5xK9b1OE9wRc2FSGJbSlHPHpFqgN2RLWieDGPU8c6pNl79v9jrcTNZfrA072CO9pPDduf6on8SncDWv6ekFw49iJIzi5hlM9UTv0vo0Q3tM4M25/b9x+EO7dwtsBt74oZeQBQV2ccE2WvW9Ns+r8Tq4POFnjfd6RudWrY07+GutwfXP7zLD9IFwv6cuAWy+vb25fBy4HmXO9xW8nXt5e39z+FrGcKDbr5f9pukWyv5W0IDYH9LzjY8g8jCEL1GqCG7+w8rk20953PWFbZxO2BRHeUbnFVTvDEroShovdu4Qrz9taSdmPOCCaref11rtFhphy6DzHP5+sEd5x7YzbPxi3P5obLh8yp8a7uPGYzvP6yr21Lif1hG0tMh2dyBbhHdffxu1P+eQdy5Dh8tesLMcTmgH3ZNW7dHPQzYRNZvXnkzvCOxKGzMcbOFx+uL65vQxeDIrizrTvPG/bZbgtqp6wrcqNlGEChHc8O+P2D8btj+K+JH2f5DtJL4IXg1IdBtyT27aozxO3R+97IoR3PAyZj3Mh/20uL5jnhochL+rZuVG1XNQTt7ebuL3ZIrzj2Rq2nfWQuVsYtPO87ZDz/2ZMz80J7z1vWyijgHIPs82ETbJwbSKEdwQufBaGJRwM2w7hlJOvjnViuBzDDOl95zY0XE/cnvWo4ywQ3nFY//JOPc8VjHtqrzxve81wOYZwve/a87bcFmZ9nbi93KYWskR4x7E1bv9g3P4YvguC6uub232MQjAbpfe+a4M2dwZtzgrhHZh74qwMS2hy7YW6XvfK87YhX7zAd27bWOt52y54IZG40YVu4matRx+LR3iHtzVuvzZufwzfXvfeffECY73zvH7hXjqUi2bi9hg6j4zwDu9P4/aznO+m1w1j+wH3WL90yIfF98LOoM3ZILzD2xq3Xxu3P5Rvr/uSVxAiFDfVtPe8LafeZWPQJkPnERHe4VWGbWc53+2GH1cet3Si143whrw+dxe6iEgagza3Bm3OBuEdUAJvHaqN2x/Kd+XuIceHFKRt4MK1LHqXRqNUiwS+E4tFeIe1NW4/u/lut19263kbvW7EcvC8fhehhlhqgzazeLjJEeEd1u/G7TfG7Q/h2+veM9eNiHxXnSujVeeNQZtbgzZngfAOqzJsu8st1Aa+NtX7yxU41cB3YOfSu/yPQZtVRov6skJ4h7UybLsxbHuonfzOgK+vb26bKJUAP/guXNvGKCKC2qjdrVG7RSO8A0lgYUZ2893y3yc7ZDUw4Kv2vH6VyVnnrVG71mdfFInwDqcybr8xbt/LZr1cye+JvOMMc0zBje60nrdtgxcSmOG02tao3aIR3uEsjNtvjdv3tfO8fh+hBuBXDp7X59K7bA3aZN47AsI7HNO/vBnOBTNkjpT5TkNtYxQRQWvUbmXUbrEI73BWhm03hm17c0PmlcctbYYPJ8hb7Xn9wv1ep641andr1G6xCO9wVoZtd4ZtD7HzvP4QoQbgl9wJfrXnbdvghYT3b6N2rc/AKA7hHUACT9y5rTT3nWJgyBwWfP9e5RBQnVG7lVG7xSK8w1gZt98Zt+9r53EtQ+awUnteX0WoIbTGqN0Vi9bCIrzDWBm33xi3f7IBR0nWEcoATtF4Xr+NUENJKusCSkJ4h7Eybr8zbt+H75D5xyhVAE9w896Nzz0ZHNbSGLa9NWy7OIR3ATIbVt56Xl9HqAE4VeN5/SpCDcEYv0r3X4ZtF4fwDiOXAxpSUHlc2/DebhjzXZ1dxSiiECvrAkpCeOevti7gVAPOf68jlAH4qD2vz6F32Rm1Wxm1WyTCG1Pael6f2xY4lKfxvH4VoYbQGqN2F6w4D4fwDqOyLiATvvtgmxhFAKcaMG1TRSijJJV1AaUgvMNYGLadU+905XFtZ/gWJOBY7XHtIlINpVhYF1AKwhtTqjyubSLVAPjqfC7OYLuYpcq6gFIQ3pjEgC+0nEYUULavntcvYhQRUGvY9v8atl0Uwjt/nXUBJ1p5Xt9FqAEYovO8fhGhhpCsXk4i0fMOhvAeKYGXkjTG7Z+q8ry+iVADMETjeX0VoQbgJ4T3eCvrAjLhO1zWxCgCgKmtdQGlILwxlcrnYk5WQ0Ja6wKA+whvpKi1LgC4M2DLIsclP4KDWsIgvDGVyuPaNlINAOxV1gWUgPDGVBbWBQBAKQhvpKixLgAAUkZ4I7oBc1z/iVEHMEJjXUBBVtYFlIDwHq+xLiADlXUBwEiddQEFWVkXUALCeyS2NAG4Z2FdwBM4orQAhDcAhFVZF/CEyroAjEd4A8DTKusCgGOENwA8bWFdAHCM8A6jNWx7Ydg2AMAA4R1Ga9h2Zdg2gH+qrQt4wsK6AIxHeAPAvFTWBWA8wjuM1roAAHFs1sutdQ3AfYR3GP82bDv5PZvXN7e1dQ0AUBLCO3+VdQER8EpFpGRhXUAojCKUg/AOo7EuAEA0lef1TYQagJ8Q3mF0hm2vDNv20VkXAAzkOzWV8ot1FtYFIAzCO4zGsO2VYds+Go9rt5FqAIaorAsIqLIuAGEQ3gHwchKgaCvP6+sINQA/IbzDaawazmQRymefizP534R5WFkXEBCLQQtBeIfTWRdQmIV1AcDAh8gmcBmlaa0LKAHhHY5XzzKwrWHbp6o9r68i1AD4WvnekPg02ta6ABHeQRDe4bTWBSSu87z+9xhFAJ58fw/rGEUA9xHe4bSGbSc/j3V9c9t43rKKUAbgq/K8vo1QQxCsIykL4R2I8RGgC8O2fTQe11aRagB8bD2vtzwq+SkL6wIk8+/KYhDeYbVG7VZG7fpqfS6mpwBLA3//6sBlhFRZF4BwCO+wGquGN+tlZdW2h6+e129jFAGcqBpwTxO4hpBSWEfSWRdQCsI7LN9wCmll2Papas/rU/iywXz5riVpE19pvrIuQGk/3GSF8A6rNmy7Mmz7VI3n9dsINQCn2nle30SoIaTKugCEQ3iH1Ri2ncOK805+f0aLTKYDUJjNerkbcJvlWQ+PSujvUWNdQCkI74BcOLVGza+M2vVVe16/i1AD8JQhD8N16CICWlkX4KT8xrWsEN7h1Ubtrjbr5cKobR++vZO/o1QBPG7neX034CyDKVXWBTiNdQGlILzDs1y0Vhm2fara8/oqk4cSFMINMa88b6uDFxJWKtNqnXUBpSC8w6sN294atn2SAfPeEkPnmNbzAfckO9/tVNYFSBzQEhLhHZgbOuuMmk/l6foptef1DJ1jSrsB9xwC1xDMZr1cKY3T1TrrAkpCeMdRG7VbGbXr673n9TuGzjGFgUPmzfXNbRu8mHC21gU4jXUBJSG847AaQstia9XA0Ymz4IUA//RywD116CICS+Wwo8a6gJIQ3nEcDNveGrbt4+B5/ZB5SOBkbnRnN+BW35GkqW2tC3BSfmlLdgjvCNwQWmvUfC7z3h89r69yGFVA1nbynxtuU94i5h5IKuMy7jTWBZSE8I7nYNTu1qhdL9c3twf5P+AMGdIETjXk9+sQuojAttYFHGmsCygJ4R0P895PO3hez8I1ROFe/1kNuPVd2EqCS2UkLvWXtmSH8I7E9SytbA3b9uE7V7iQ9Cp8GcCgNRWprzKX0vkuaKwLKA3hHdfBqN1UnrYf5eYKG8/bWLiGoNw+6LMBtybd605svtvy5MkiEd5x+S7KCmVn1O4Qvl+Aq816eRajEMzW+YB7OjHf7aO2LqA0hHdcB6uGB77S0MJB/nu+h3zZAv8wotd9yGAON6URuMa6gNIQ3hG5v9wHo+azOFLU/RntPW+j941Qhj4Ivg1aRRw76wKcJoMHnewQ3vFZDZ1vjdodYsjcIb1vjDKi112nvlDN/W9bGZdxp7YuoESEd3wHo3ZXuWwZc1+Ee8/bVpv18lXwYjAnFwPvo9fth8VqERDekRkPnee0MnvIEZPn7PvGEG5f927ArXUmr7VMadqsti6gRIT3NFh1/gT3hVh73rYQw+cYZmivO+ntYdL3LWJb4zLu5LAXPkuE9wSub273snmXbTZD586Q4chXmf1vhDG32LEacGtjfPjSqXbWBRyprQsoFeE9nYNRu9kMnQ/sfUvDe1GYGdcrHfr78jpgKTGlNGRudUx08Qjv6VgNt+2M2h1qSO97y+I1nOhK/m8OkzKZ6x7xWtNYausCSkV4T8QdBdoaNL1yi3Oy4L4g9wNuPXfbY4AHjVikJuWxwlxKK7hzOMgmW4T3tKx639kMnTtDvigX6ntVwD+4HunQ349DDr1uhyHzmSC8p7U3ajerV2m61akMnyOkKw0/tCSLue4Eh8wP1gWUjPCe0MCjQENYKK2/1Ke41LBphgtWn+OYW12+G3j724y2Op1ZF3CELWKREd7TY+j8BO5BZ2iP5yqnkQbE49ZBDF1d3qp/iMxFSn/Hrc62mA3Ce2Ju4Vpt0PQ2twVdbk9tPeDWSsx/z557gPugYavLJelFLguu3N/tyriMYwfrAkpHeNsYchRoCC+N2h3jhYYdcLNj/nv2LjQ80HJapCal9Xe7cZ0URER4G3AnrrUGTZ/lNpw8YvGa1M9/78JVg1y4B7ezgbd36h8ac3JmXcARq87JrBDediz2jS6U38I1Xd/cXmr4VMMVC9jmxe3nHnPqXjbD5dL3BXkL4zKOHawLmAPC285BNued5/oij2ca9ue1kPQhtxEHDOMe1D6M+IjLTM4vP5bSQjVWmU+E8DbinuwtVp5ndeLaHffnNXQocyXpEwFeNvfz/aThvdBG+ZykJun7QrWtcRnHkn/rWikIb1uXovd9Mtcjuhx4eyUCvFgBgrtTZsPlTkp/lzsxZD4ZwtuQYe97m+s88PXN7Wv1PaQhKhHgxTkK7mrEx7zObYV0iieqZfjwky3C296lbHrfKW0t8TV0/lsiwIsSKLj3bgdIbs6U1kI1VplPiPA2Ztj7Psvt0JY7bkHMsxEfUYkAz16g4G6ub25z2xZ2J6UH8CazffHZI7zTcCnmvr24L4oxX7qVCPBsBQruTtJfAcqZnNsetjIu4xgL1SZGeCeA3vcwbqhzP+IjKhHg2QkZ3BnP0abU6+7EQrXJEd7puJTNqWvZ9r4lyQ157kd8RCXpW64L+ObG/Zy+afw53i9yW6B2x231rIzLOLbP+CEoW4R3Itwvv8Ue06x7386YFehSv+jnE0epps39fMZsB7vzIsODWI6l9sDNkLkBwjshhmeep/Zl4MU9+Pyl8QH+gZeZpMn9XMa8IezOi0xXlkv63uveGpdxbM+JajYI7/RYrHw9y/HUtWOBAlzqX2bCcaqJ2KyXi816eaVxZ5XfeZ1zcDupPWhndSJdSQjvxLhV1LVB06l9KXgLGOA7SV+YB7fl/vw/Kcwbs/buBTfZSrDXXdPrtkN4p8mi973NvfctBQ3wlfoAfzXyczCA+3Mfu6L8zmXGe7mPpfaATa/b0H9ZF4CHbdbLN5r+L2t7fXP728RtRhFoO9GdWv1caRvgs/AI93O7UrhjP7Oe477jFuuNeVtaaPX1zW2We+RLQc87XZeafvHaqpSeZsAeuNQPVdILj8wF1DcR3A8JMecfEr1uY/S8E2b0tN1J+q2UfZuuJ3ehMPOmUt8Lz+4lFilzWxWvFG4+t1MZi9MkfT9N7cq6jiP0uhNAeCdus15+0vSLVPaFzBF+51YsnwX8yEtJb0t5yLHipodeKtwLNjr1J6c1gT7PlHv4/Ka0XkDyRyl/vjlj2Dx9LzT9uefZbx27zz2MhHwgeaX+ZLY3AT9zNjbr5dlmvfymfl3HItDHNiovWF4preDeF/bnmy163hlwc61Tz3k11ze3f0zcZnTuoSTEYR/HWvW98H3AzyyS+/M/V/jRpIP6Oe4u8OeacdMJ36zruOc3Fm6mgfDOhNHw+dvrm9s3E7cZnftS/KDw50O3IsQfFDG0pXJ/Tz8o3OK9EIr8c84V4Z0Jd2DFl4mb7dQPQ7YTtzuJzXp5oX5YMrRO/XnPlyX1BIdwi63OFef1lZ2kZyW+R9o97HyyruNIp4IWspaA8M6I0fB50StL3Yr+K8WbV9xLejeneUI3snEm6bnivXO6Vh/cXaTPN+MWqX1RWu/rLmnbXREI78wYDZ+/zv1oycdE2Kr0kFZ9b/xQ8EjGmaS/FX+ot/TfxzdK6zS1oh/gc0V4Z8YFzRdNuwK1U8HD53fcyEbI1c+/Ukv6qAKC3I1c3AX2InJzjTJ+D/cpjKbHnlLaCv4iEN4ZMjq0YRZP3xP1wo816oO8zmHu1v35bNUH9lbTPER26qce3kzQlqnNevlF4RdSjnF5fXP72roI/BPhnSmjlaizWW06wVz4r9SSPrt/NtZzuq4nWEn6U31YryYuodZMzpU3WtPymFZ9r7szrgMPILwzZbioZTZDaO7P+JVs5x9b9b3zr+7fW0UIdRfSC/UB/S/1v1fbkG14atXPbR8Ma5jM0etPF7aV/OSvHEaD5orwzpjR/FirmT2Nu6HiC6W151bqQ707+vf/nHjf7/oREpXSCoxOMxkiP5bgcPnh+ub2mXUR+DXCO3NGQ23FnX1+isgHjaB/U9Xs9sYnuLq8E3u6k0d4F8Bo/nu2+z4J8eD26tdTtMZ1TC7R1eUMl2eA8C6Am5v9pGmH3ToV9PamIVyIv1R6w+k56DTzU+gSPYyF1eWZILwLYbTgpdXM5r8f4ubEzzXNXufctepDe8/vTXJnlzfqH8g74zpwAsK7IOz/tuV6Ujv1vfHKspYEHSS9n8vq8ackuC2s08xH0nJDeBfGaPELQ233uJGQ5+rP+F5Y1mKokfReBZwkF1Ki89xFHzlbIsK7QCxgS8vER4haa/Wjl92YVpKgROe5Z7l7JHeEd4GMFrBJMzrAZSi3yO3uaNHKspaAahVyVntszHMjFMK7UC7Av2n6F5gwb3aioznyP9UHeWVXjZda7ghXthSdLtH93Px9zRThXTCjFeiNeJIfxIV5pb5X/rv6odXKqh6nVj8U/lX9say1ZTG5clMnH6zruOcZCwjzRXgXzg3Tfpq42UYEeDD3zh2X+p661If7auTHN+p7YJ36gO7c/61lCDyMRM8tn81LhkpFeM+A0RYyFsFMzO03Xz1xGaE8IRaoIRbCeyYIcGBahgtHH9Nc39z+YV0Exvtv6wIwDbeNaz9xs2eb9XLqBwYgFRdKLLglcaBSIeh5z4wL07OJm6UHjlkx+nv2mE79Vs7WuA4EQs97ZlyI7idulh44ZsMdfXpmXMaxTv0C0ta4DgREz3um6IED4RmtLXlMJ/ZyF4me90zRAwfCSjC4pf7Y4sa6CIRHeM8YAQ6EkXBwH6yLQByE98wR4MA4CQf33roIxMOcNySZzYEf1H/JdBO3CwRBcMMK4Y3vjAK8EUepIkMENywR3viJ0RdSIxbWICMJBncnVpXPCuGNfzD6YurElw8yQHAjBSxYwz+4Ybdn6r8UprKQ9MV9MQJJcu/kTim4WxHcs0TPG79k+CpDDnNBchI88rQR60Vmi/DGo9xrJj9o+hcsNOKLCQlwbwe7krSzreQnB7FTY9YIbzzJ8Murk/Ts+ua2nrhdQFKyr/VkZAqEN063WS8vJL0yaPrt9c3tG4N2MWOG00aPYSsYJBHe8OQWlF1o+i+0Wn0vvJu4XcwQK8qROsIb3lyP5IOk1cRNd+K8ZkTGwjTkgPDGIG4u8IOkrUHzl+qH0juDtlEow8WZj7m8vrl9bV0E0kN4YxS37/XcoOlWfS+8Nmgbhdmslzv1w+QL20q+68QoEx5BeGO0zXq5Vd9jWRg0fyl64RjIjSCdy2Yh5q/U6oO7Na4DCSO8EYTxXthW0mt6KfDh1m5cKa1hcnZW4CSEN4LarJev1PdkFgbNH9SHeGvQNjJiON3zK414OQ88EN4IzrhH00l6p36hT2fQPhJGbxulILwRjXHvplX/pbg3ah8JSXRuuxG9bQxEeCOqBHo6tfoQr43ahzG3kvxC059L8CudpHf0tjEG4Y1JJDDHWIsQnxW3b/tKNmcR/EotVpIjAMIbk0nky3SvPsRbwxoQkRsiv1Bap6S1YkcEAiK8MTnD89GPHdQPXdaGNSAgF9qvJL1UWoetsIASwRHeMJHQAqJaDKdnLdHQlhjlQUSEN0y5BW0Xsp+XbCW9lXSgh5SHhEO7FvPaiIzwRhISWhHcqe8xvePLN01u7cSZ0gxtRnEwCcIbSXGr0lP5Uq4lvRe98SS4UZqXSmshmkRowwDhjeQkOBzaqV/g9pHVwtNyvws79b8LlWUtD6hFaMMI4Y1kJbSo7VirPsjfczJWPEe97J3SeIA7dhA7FWCM8Eby3BznudIbLu1EjzwY93O+C+yVZS2/sBerx5EIwhvZSHA4/b6DpM+Sanrlp3E97OfqdxtUlrX8Qqt+3QP7tJEUwhvZySDEpf5Lv5b0VYT5d+5nt5X0t/vnyq6aR9Xqh8YPxnUADyK8kTV3WluKi5nu69S/Reqz+2c9h57cUVj/qXR713da/ZjPbk0rAZ5AeKMIm/Vyq3749cy2Ei+dfg70Nvceuvs5VJJ+d/+s7Ko52V6sW0BmCG8U5egAj+dKd0j2KY36YP+sHwHfpRLsrjddqf/zXelHUK9sKhrkIOmj2MOPTBHeKJY7te1v5dUbf0qnPszl/vmfo3/vjq5rfYZ+jwL5zvF//5f6YL5/TW4a/Th0p7UtBRiH8EbxEj/oA3EdRA8bBSK8MStuWH2nfli9sqwFUbTqV4p/1EwWBWKeCG/MFkFejFo/wrqxLQWYBuEN6HuQb9XPke8sa8GTav04DKe2LQWwQXgDD3Bbnu4OEqksa5m5Tj/CuiGsgR7hDTwhs4NGctbp533vDavCgYcR3oCno21VW/V7nLdK95jWVDXqF5d9Vd+z9traBswd4Q0E4ObMV/oR6CvRQ2/dfxr1+9FrJXTYDJAzwhuIyL01a6U+yO8OO7n7T+5q989W0r+V4GlwQKkIb8DIUW9d6nvskvS/+rnHXin+kHyjn09n69QPZz/0/2d4G0gA4Q1k6F7wP6XhsBIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEr2/8uTaWmYGRzyAAAAAElFTkSuQmCC" alt="Eternità" class="hero-icon">
+    <p class="eyebrow">Catálogo Eternità</p>
+    <h1>Maternidade &amp; Batizado</h1>
+    <p>Peças para guardar o começo de uma história, da primeira visita ao dia do batizado, cada vela ilumina a nova fase que se inicia.</p>
+    <div class="tag-row">
+      <span class="pill">Personalização inclusa</span>
+      <span class="pill">Envio para todo o Brasil</span>
+      <span class="pill">Feito à mão</span>
+    </div>
+  </div>
+</section>
+
+<section class="section especiais">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Novidade</p>
+      <h2>Kits Especiais</h2>
+      <p>Frasco de 120ml com tampa hermética, onde a arte veste o vidro por inteiro: uma memória eternizada em arte. Pedido mínimo de 12 unidades.</p>
+    </div>
+
+    <div class="kit-grid">
+      <div class="kit-card">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20PREMIUN%20COM%20CAIXA.png" alt="Kit especial com caixa personalizada">
+        <div class="kit-body">
+          <p class="kit-tag">Versão Caixa</p>
+          <h3>Embalagem em caixa</h3>
+          <p>Caixa com adesivo personalizado, para quem busca uma apresentação mais estruturada.</p>
+          <div class="kit-price">R$ 54,00<small>por unidade, pedido mínimo de 12</small></div>
+          <div class="discount-table">
+            <div><span>12 a 35 unidades</span><span>R$ 54,00</span></div>
+            <div><span>36 a 99 unidades</span><span>R$ 51,30 <em>(5% off)</em></span></div>
+            <div><span>100+ unidades</span><span>R$ 48,60 <em>(10% off)</em></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kit-card">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20PREMIUN%20COM%20SAQUINHO.png" alt="Kit especial com saquinho de algodão personalizado">
+        <div class="kit-body">
+          <p class="kit-tag">Versão Saquinho</p>
+          <h3>Embalagem em saquinho</h3>
+          <p>Saquinho de algodão costurado à mão, com tag personalizada e cordão, um acabamento mais artesanal.</p>
+          <div class="kit-price">R$ 55,00<small>por unidade, pedido mínimo de 12</small></div>
+          <div class="discount-table">
+            <div><span>12 a 35 unidades</span><span>R$ 55,00</span></div>
+            <div><span>36 a 99 unidades</span><span>R$ 52,25 <em>(5% off)</em></span></div>
+            <div><span>100+ unidades</span><span>R$ 49,50 <em>(10% off)</em></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section como-funciona">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Monte do seu jeito</p>
+      <h2>Como montar seu kit</h2>
+      <p>Cada modelo de vela pode receber adicionais: escolha o que combina com a ocasião.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-mark">A</div>
+        <h3>Escolha a vela</h3>
+        <p>Modelo, tamanho e acabamento: do mini ao grande, transparente, fosco ou colorido.</p>
+      </div>
+      <div class="step">
+        <div class="step-mark">B</div>
+        <h3>Adicione um toque</h3>
+        <p>Pingente, saquinho ou caixa, pequenos detalhes que mudam a apresentação final.</p>
+      </div>
+      <div class="step">
+        <div class="step-mark">C</div>
+        <h3>Componha um kit</h3>
+        <p>Combine a vela com uma bandeja e mimos (sachês, home spray, escalda-pés) para um presente completo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section modelo">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Catálogo de velas</p>
+      <h2>Escolha o modelo</h2>
+      <p>Do mais discreto ao mais elaborado, cada modelo aceita os adicionais que combinam com a ocasião.</p>
+      <p class="minimo-nota">Pedido mínimo de 25 unidades por modelo.</p>
+    </div>
+
+    <div class="modelo-card">
+      <div class="modelo-visual">
+        <div class="foto-principal">
+          <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20LATA%20MINI.png" alt="Vela na Lata Mini">
+        </div>
+      </div>
+      <div class="modelo-info">
+        <p class="kit-tag">Vela na Lata Mini</p>
+        <h3>A partir de</h3>
+        <div class="preco-atual" id="preco-lata-mini" data-base="21" data-desc="2,2cm de altura × 5,5cm de diâmetro · 50g">R$ 21,00<small>2,2cm de altura × 5,5cm de diâmetro · 50g</small></div>
+
+        <div class="addons">
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar saquinho (mini)</span>
+                <span class="addon-desc">Algodão com tag personalizada</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 6,00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modelo-card">
+      <div class="modelo-visual">
+        <div class="foto-principal">
+          <img id="foto-mini" src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20PERSONALIZADA%20COPO%20MINI%20%284%29.jpg" alt="Vela Copo Mini">
+        </div>
+        <div class="swatches">
+          <div class="swatch active" data-img="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20PERSONALIZADA%20COPO%20MINI%20%284%29.jpg" data-price="24" data-label="Transparente" data-personalizacao="Personalização em adesivo transparente na parte frontal.">
+            <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20PERSONALIZADA%20COPO%20MINI%20%284%29.jpg" alt="Transparente">
+          </div>
+          <div class="swatch" data-img="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20MINI%20FOSCO.jpg" data-price="28" data-label="Fosco" data-personalizacao="Personalização em adesivo opaco na parte frontal.">
+            <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20MINI%20FOSCO.jpg" alt="Fosco">
+          </div>
+          <div class="swatch" data-img="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20MINI%20BRANCO.jpeg" data-price="28" data-label="Colorido" data-personalizacao="Personalização em adesivo opaco na parte frontal, consultar cores disponíveis.">
+            <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20MINI%20BRANCO.jpeg" alt="Colorido">
+          </div>
+        </div>
+        <p class="swatch-label">Transparente R$24 · Fosco R$28 · Colorido R$28</p>
+      </div>
+
+      <div class="modelo-info">
+        <p class="kit-tag">Vela Copo Mini</p>
+        <h3>A partir de</h3>
+        <div class="preco-atual" id="preco-mini" data-base="24" data-desc="Transparente · 7cm de altura × 4,5cm de diâmetro · 60g" data-dims="7cm de altura × 4,5cm de diâmetro · 60g">R$ 24,00<small>Transparente · 7cm de altura × 4,5cm de diâmetro · 60g</small></div>
+        <p class="personalizacao-nota" id="personalizacao-mini">Personalização em adesivo transparente na parte frontal.</p>
+
+        <div class="addons">
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar pingente</span>
+                <span class="addon-desc">Pingente de metal envernizado amarrado com cordão</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 8,00</span>
+          </div>
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar saquinho (mini)</span>
+                <span class="addon-desc">Algodão com tag personalizada</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 6,00</span>
+          </div>
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar caixa</span>
+                <span class="addon-desc">Com adesivo personalizado</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 5,00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modelo-card">
+      <div class="modelo-visual">
+        <div class="foto-principal">
+          <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20MINI%20PREMIUM.jpg" alt="Edição Assinatura" style="aspect-ratio:1/1; object-fit:contain; object-position:center;">
+        </div>
+      </div>
+      <div class="modelo-info">
+        <p class="kit-tag">Peça exclusiva</p>
+        <h3>Edição Assinatura</h3>
+        <p style="font-size:14px; line-height:1.65; color:var(--brown-soft); margin:0 0 20px;">A mesma vela copo mini, com arte aplicada diretamente ao redor de todo o vidro e tag amarrada à mão, detalhes que enriquecem e trazem personalidade à lembrança.</p>
+        <div class="preco-atual" data-base="27" data-desc="peça única">R$ 27,00<small>peça única</small></div>
+
+        <div class="addons">
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar pingente</span>
+                <span class="addon-desc">Pingente de metal envernizado amarrado com cordão</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 6,00</span>
+          </div>
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar saquinho (mini)</span>
+                <span class="addon-desc">Algodão com tag personalizada</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 6,00</span>
+          </div>
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar caixa</span>
+                <span class="addon-desc">Com adesivo personalizado</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 5,00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modelo-card">
+      <div class="modelo-visual">
+        <div class="foto-principal">
+          <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20TAMPA%20ROLHA.jpg" alt="Vela Tampa Rolha">
+        </div>
+      </div>
+      <div class="modelo-info">
+        <p class="kit-tag">Vela Tampa Rolha</p>
+        <h3>A partir de</h3>
+        <div class="preco-atual" data-base="23" data-desc="Transparente · 7,5cm de altura × 5,5cm de diâmetro · 75g">R$ 23,00<small>Transparente · 7,5cm de altura × 5,5cm de diâmetro · 75g</small></div>
+        <p class="personalizacao-nota">Personalização em adesivo no vidro, com tag amarrada ao gargalo com cordão.</p>
+
+        <div class="addons">
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar pingente</span>
+                <span class="addon-desc">Pingente de metal envernizado amarrado com cordão</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 8,00</span>
+          </div>
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar saquinho</span>
+                <span class="addon-desc">Algodão com tag personalizada</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 6,50</span>
+          </div>
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar caixa</span>
+                <span class="addon-desc">Com adesivo personalizado</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 5,00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modelo-card">
+      <div class="modelo-visual">
+        <div class="foto-principal">
+          <img id="foto-medio" src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20M%C3%89DIO.jpg" alt="Vela Copo Médio">
+        </div>
+        <div class="swatches">
+          <div class="swatch active" data-img="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20M%C3%89DIO.jpg" data-price="31" data-label="Transparente" data-personalizacao="Personalização em adesivo opaco ou transparente na parte frontal.">
+            <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20M%C3%89DIO.jpg" alt="Transparente">
+          </div>
+          <div class="swatch" data-img="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20M%C3%89DIO%20FOSCO.jpg" data-price="36" data-label="Fosco" data-personalizacao="Personalização em adesivo opaco ou transparente na parte frontal.">
+            <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20M%C3%89DIO%20FOSCO.jpg" alt="Fosco">
+          </div>
+          <div class="swatch" data-img="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20M%C3%89DIO%20COLORIDO.png" data-price="37" data-label="Colorido" data-personalizacao="Personalização em adesivo opaco ou transparente na parte frontal, consultar cores disponíveis.">
+            <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20M%C3%89DIO%20COLORIDO.png" alt="Colorido">
+          </div>
+        </div>
+        <p class="swatch-label">Transparente R$31 · Fosco R$36 · Colorido R$37</p>
+      </div>
+
+      <div class="modelo-info">
+        <p class="kit-tag">Vela Copo Médio</p>
+        <h3>A partir de</h3>
+        <div class="preco-atual" id="preco-medio" data-base="31" data-desc="Transparente · 7,5cm de diâmetro × 5,5cm de altura · 100g" data-dims="7,5cm de diâmetro × 5,5cm de altura · 100g">R$ 31,00<small>Transparente · 7,5cm de diâmetro × 5,5cm de altura · 100g</small></div>
+        <p class="personalizacao-nota" id="personalizacao-medio">Personalização em adesivo opaco ou transparente na parte frontal.</p>
+
+        <div class="addons">
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar pingente</span>
+                <span class="addon-desc">Pingente de metal envernizado amarrado com cordão</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 8,00</span>
+          </div>
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar saquinho</span>
+                <span class="addon-desc">Algodão com tag personalizada</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 8,00</span>
+          </div>
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar caixa</span>
+                <span class="addon-desc">Com adesivo personalizado</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 6,00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modelo-card">
+      <div class="modelo-visual">
+        <div class="foto-principal">
+          <img id="foto-grande" src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20GRANDE.jpg" alt="Vela Copo Grande">
+        </div>
+        <div class="swatches">
+          <div class="swatch active" data-img="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20GRANDE.jpg" data-price="47" data-label="Transparente" data-personalizacao="Personalização em adesivo transparente ou opaco na parte frontal.">
+            <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20GRANDE.jpg" alt="Transparente">
+          </div>
+          <div class="swatch" data-img="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20GRANDE%20FOSCO.jpg" data-price="52" data-label="Fosco" data-personalizacao="Personalização em adesivo transparente ou opaco na parte frontal.">
+            <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20GRANDE%20FOSCO.jpg" alt="Fosco">
+          </div>
+          <div class="swatch" data-img="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20GRANDE%20COLORIDO.png" data-price="53" data-label="Colorido" data-personalizacao="Personalização em adesivo transparente ou opaco na parte frontal, consultar cores disponíveis.">
+            <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20GRANDE%20COLORIDO.png" alt="Colorido">
+          </div>
+        </div>
+        <p class="swatch-label">Transparente R$47 · Fosco R$52 · Colorido R$53</p>
+      </div>
+
+      <div class="modelo-info">
+        <p class="kit-tag">Vela Copo Grande</p>
+        <h3>A partir de</h3>
+        <div class="preco-atual" id="preco-grande" data-base="47" data-desc="Transparente · 8x8x8cm · 190g" data-dims="8x8x8cm · 190g">R$ 47,00<small>Transparente · 8x8x8cm · 190g</small></div>
+        <p class="personalizacao-nota" id="personalizacao-grande">Personalização em adesivo transparente ou opaco na parte frontal.</p>
+
+        <div class="addons">
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar pingente</span>
+                <span class="addon-desc">Pingente de metal envernizado amarrado com cordão</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 8,00</span>
+          </div>
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar saquinho</span>
+                <span class="addon-desc">Algodão com tag personalizada</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 9,00</span>
+          </div>
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar caixa</span>
+                <span class="addon-desc">Com adesivo personalizado</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 7,00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modelo-card">
+      <div class="modelo-visual">
+        <div class="foto-principal">
+          <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20NA%20LATA.jpg" alt="Vela na Lata">
+        </div>
+      </div>
+      <div class="modelo-info">
+        <p class="kit-tag">Vela na Lata</p>
+        <h3>A partir de</h3>
+        <div class="preco-atual" data-base="31" data-desc="Lata metálica com tampa plástica branca · 8x8x8cm · 150g">R$ 31,00<small>Lata metálica com tampa plástica branca · 8x8x8cm · 150g</small></div>
+        <p class="personalizacao-nota">Personalização em adesivo opaco ao redor de todo o frasco e na tampa.</p>
+
+        <div class="addons">
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar saquinho</span>
+                <span class="addon-desc">Algodão com tag personalizada</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 9,00</span>
+          </div>
+          <div class="addon-row" onclick="toggleAddon(this)">
+            <div class="addon-left">
+              <div class="checkbox"></div>
+              <div>
+                <span class="addon-name">Adicionar caixa</span>
+                <span class="addon-desc">Com adesivo personalizado</span>
+              </div>
+            </div>
+            <span class="addon-price">+ R$ 7,00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream);">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Para compor kits</p>
+      <h2>Mimos</h2>
+      <p>Combine qualquer mimo com a vela escolhida para criar um presente completo e memorável.</p>
+      <p class="minimo-nota">Pedido mínimo de 25 unidades por item.</p>
+    </div>
+
+    <div class="mimos-grid">
+
+      <div class="mimo-card destaque">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/HOME%20SPRAY%20LUXO.jpg" alt="Home Spray Luxo">
+        <div class="mimo-body">
+          <p class="mimo-tag">Destaque</p>
+          <h4>Home Spray Luxo</h4>
+          <p class="mimo-desc">Frasco de vidro com tampa metálica. 30ml de fragrância exclusiva, para perfumar ambientes com sofisticação.</p>
+          <div class="mimo-price">R$ 25,00<small>30ml · por unidade</small></div>
+        </div>
+      </div>
+
+      <div class="mimo-card">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/ESCALDA-P%C3%89S.jpg" alt="Escalda-pés relaxante em vidro">
+        <div class="mimo-body">
+          <p class="mimo-tag">Bem-estar</p>
+          <h4>Escalda-pés em vidro</h4>
+          <p class="mimo-desc">Feito artesanalmente para relaxamento e alívio de dores. Embalagem individual para um uso.</p>
+          <div class="mimo-price">R$ 11,00<small>60g · por unidade</small></div>
+        </div>
+      </div>
+
+      <div class="mimo-card">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/SACH%C3%8A%20ESCALDA-P%C3%89S%202.jpg" alt="Sachê Escalda-pés">
+        <div class="mimo-body">
+          <p class="mimo-tag">Bem-estar</p>
+          <h4>Sachê Escalda-pés</h4>
+          <p class="mimo-desc">Feito artesanalmente para relaxamento e alívio de dores. Embalagem individual para um uso.</p>
+          <div class="mimo-price">R$ 9,00<small>50g · por unidade</small></div>
+        </div>
+      </div>
+
+      <div class="mimo-card">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/SABONETE%20NO%20SAQUINHO%20DE%20JUTA%202.jpg" alt="Sabonete no Saquinho">
+        <div class="mimo-body">
+          <p class="mimo-tag">Cuidado</p>
+          <h4>Sabonete no Saquinho</h4>
+          <p class="mimo-desc">Base vegetal com extrato de aloe vera, fragrância Calmaria. Embalado em saquinho de juta personalizado.</p>
+          <div class="mimo-price">R$ 15,00<small>50g · por unidade</small></div>
+        </div>
+      </div>
+
+      <div class="mimo-card">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/SACH%C3%8A%20AROM%C3%81TICO%20%20LA%C3%87O.jpeg" alt="Sachê Aromático Laço">
+        <div class="mimo-body">
+          <p class="mimo-tag">Aroma</p>
+          <h4>Sachê Aromático Laço</h4>
+          <p class="mimo-desc">Sachê perfumado com acabamento em laço. Disponível em diversas cores, consulte opções disponíveis.</p>
+          <div class="mimo-price">R$ 10,00<small>por unidade</small></div>
+        </div>
+      </div>
+
+      <div class="mimo-card">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/SACH%C3%8A%20AROM%C3%81TICO%202.jpg" alt="Sachê Aromático Pompom">
+        <div class="mimo-body">
+          <p class="mimo-tag">Aroma</p>
+          <h4>Sachê Aromático Pompom</h4>
+          <p class="mimo-desc">Sachê perfumado com acabamento em pompom. Disponível em diversas cores, consulte opções disponíveis.</p>
+          <div class="mimo-price">R$ 10,00<small>por unidade</small></div>
+        </div>
+      </div>
+
+      <div class="mimo-card">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/HOME%20SPRAY%20PET%202.jpg" alt="Home Spray Pet">
+        <div class="mimo-body">
+          <p class="mimo-tag">Aroma</p>
+          <h4>Home Spray Pet</h4>
+          <p class="mimo-desc">Frasco pet 45ml para perfumar ambientes. Prático e leve, ideal para lembranças em maior quantidade.</p>
+          <div class="mimo-price">R$ 10,00<small>45ml · por unidade</small></div>
+        </div>
+      </div>
+
+      <div class="mimo-card">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/F%C3%93SFORO%20PERSONALIZADO%202.jpg" alt="Fósforo Personalizado">
+        <div class="mimo-body">
+          <p class="mimo-tag">Detalhe</p>
+          <h4>Fósforo Personalizado</h4>
+          <p class="mimo-desc">Frasco de vidro com 15 hastes e lixa para riscar. Personalizado com arte e nome do bebê.</p>
+          <div class="mimo-price">R$ 9,00<small>por unidade</small></div>
+        </div>
+      </div>
+
+      <div class="mimo-card">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/SACOLINHA%20M%C3%89DIA%202.jpg" alt="Sacolinha de Tecido">
+        <div class="mimo-body">
+          <p class="mimo-tag">Embalagem</p>
+          <h4>Sacolinha de Tecido</h4>
+          <p class="mimo-desc">Com corrente, tag personalizada e alça de algodão. Opções: Pequena, Média ou Grande.</p>
+          <div class="mimo-price">R$ 7,00<small>Pequena · R$8 Média · R$9 Grande</small></div>
+        </div>
+      </div>
+
+      <div class="mimo-card">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/%C3%81LCOOL%20EM%20GEL.jpg" alt="Álcool em Gel Aromatizado">
+        <div class="mimo-body">
+          <p class="mimo-tag">Cuidado</p>
+          <h4>Álcool em Gel Aromatizado</h4>
+          <p class="mimo-desc">45ml em frasco personalizado. Praticidade com o toque da nossa fragrância.</p>
+          <div class="mimo-price">R$ 10,00<small>45ml · por unidade</small></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream-soft);">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Para montar kits completos</p>
+      <h2>Bandejas</h2>
+      <p>A base que organiza e valoriza cada composição, transformando os mimos em um presente com identidade.</p>
+    </div>
+
+    <div class="bandejas-grid">
+      <div class="bandeja-card">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/BANDEJA%20DE%20MADEIRA%20RETA.jpg" alt="Bandeja de Madeira Reta">
+        <div class="bandeja-body">
+          <h4>Bandeja de Madeira Reta</h4>
+          <p class="mimo-desc">Madeira natural, acabamento liso. 25×25×4cm, ideal para compor kits com velas e mimos.</p>
+          <div class="mimo-price">R$ 50,00<small>por unidade · sem mínimo</small></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section detalhes">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">De perto</p>
+      <h2>Os detalhes de perto</h2>
+      <p>Pequenos elementos que compõem cada peça, e que podem ser adicionados a qualquer modelo do catálogo.</p>
+    </div>
+    <div class="detalhes-grid">
+      <div class="detalhe-item">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20M%C3%89DIO%20COLORIDO%20COM%20SAQUINHO.png" alt="Saquinho de algodão personalizado">
+        <p>Saquinho de algodão, com tag personalizada</p>
+      </div>
+      <div class="detalhe-item">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20COPO%20M%C3%89DIO%20COM%202%20PINGENTE.jpg" alt="Vela com dois pingentes personalizados">
+        <p>Consulte os valores para pingentes extras</p>
+      </div>
+      <div class="detalhe-item">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/KIT%20%20VELA%201.jpg" alt="Composição de kit com vela e bandeja">
+        <p>Composições especiais para cada momento</p>
+      </div>
+      <div class="detalhe-item">
+        <img src="https://raw.githubusercontent.com/Eternitasaboaria/eternitasaboaria.github.io/main/docs/catalogo-maternidade/VELA%20TAMPA%20ROLHA%20COM%20PINGENTE%20EM%20CONJUNTO.jpg" alt="Vela com pingente para batizado">
+        <p>Um toque a mais para o dia do batizado</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <p class="eyebrow">Fale com a gente</p>
+  <h2>Vamos montar seu pedido?</h2>
+  <p>Conte pra gente a ocasião, a quantidade e o estilo que você imagina: a gente te ajuda a montar o kit ideal.</p>
+  <a class="btn" href="https://wa.me/5545998006648" target="_blank">Falar no WhatsApp</a>
+  <p class="pagamento-nota">Forma de pagamento via cartão de crédito em até 3x sem juros ou via Pix com desconto de 7% nos produtos. Combine a forma de pagamento na hora do seu pedido.</p>
+</section>
+
+<script>
+function toggleAddon(row){
+  row.querySelector('.checkbox').classList.toggle('checked');
+  const card = row.closest('.modelo-card');
+  updatePrice(card);
+}
+function updatePrice(card){
+  const precoEl = card.querySelector('.preco-atual');
+  const base = parseFloat(precoEl.dataset.base);
+  let extras = 0;
+  let anyChecked = false;
+  card.querySelectorAll('.addon-row').forEach(row=>{
+    if(row.querySelector('.checkbox').classList.contains('checked')){
+      anyChecked = true;
+      const price = parseFloat(row.querySelector('.addon-price').textContent.replace('+ R$','').replace(',','.'));
+      extras += price;
+    }
+  });
+  const total = base + extras;
+  const descText = anyChecked ? 'com os adicionais selecionados' : precoEl.dataset.desc;
+  precoEl.innerHTML = 'R$ ' + total.toFixed(2).replace('.',',') + '<small>' + descText + '</small>';
+}
+document.querySelectorAll('.swatch').forEach(sw=>{
+  sw.addEventListener('click', ()=>{
+    const card = sw.closest('.modelo-card');
+    card.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));
+    sw.classList.add('active');
+    card.querySelector('.foto-principal img').src = sw.dataset.img;
+    const precoEl = card.querySelector('.preco-atual');
+    precoEl.dataset.base = sw.dataset.price;
+    precoEl.dataset.desc = sw.dataset.label + ' · ' + precoEl.dataset.dims;
+    updatePrice(card);
+    const notaEl = card.querySelector('.personalizacao-nota');
+    if(notaEl && sw.dataset.personalizacao){ notaEl.textContent = sw.dataset.personalizacao; }
+  });
+});
+</script>
+
+</body>
+</html>
